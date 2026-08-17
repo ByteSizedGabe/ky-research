@@ -592,118 +592,71 @@
           <div><b>4</b><span>הדמיה בזמן אמת</span></div>
         </div>
 
-        <section class="balad-app reveal" id="baladApp" aria-labelledby="baladAppTitle" lang="he" dir="rtl">
-          <div class="balad-appbar">
-            <div class="balad-appbrand">
-              <span class="balad-appmark" aria-hidden="true">B</span>
-              <div>
-                <strong>BaladCanvas</strong>
-                <span data-balad-i18n="projectLabel">רחוב 70 · כפר יאסיף</span>
+        <section class="prototype panel reveal" aria-labelledby="builderTitle">
+          <div class="prototype-head">
+            <div>
+              <p class="kicker">שכבה 1 + 2</p>
+              <h3 id="builderTitle">בנה חתך לרחוב 112</h3>
+              <p>בחר אלמנטים והמערכת תעדכן חתך סכמטי ומדדי המחשה. המדדים כאן הם דמו אינטראקטיבי בלבד — לא חישוב הנדסי.</p>
+            </div>
+            <label class="width-control" for="streetWidth">
+              <span>רוחב רחוב</span>
+              <output id="streetWidthOutput">10 מ׳</output>
+              <input id="streetWidth" type="range" min="6" max="14" step="0.5" value="10" />
+            </label>
+          </div>
+
+          <div class="builder-layout">
+            <div class="builder-controls" id="builderControls">
+              <button class="element-toggle active" data-element="sidewalk" aria-pressed="true"><span>מדרכה</span><small>1.5 מ׳</small></button>
+              <button class="element-toggle active" data-element="trees" aria-pressed="true"><span>עצים</span><small>הצללה</small></button>
+              <button class="element-toggle active" data-element="benches" aria-pressed="true"><span>ספסלים</span><small>שהייה</small></button>
+              <button class="element-toggle" data-element="water" aria-pressed="false"><span>תעלת מים</span><small>ניקוז</small></button>
+              <button class="element-toggle" data-element="permeable" aria-pressed="false"><span>ריצוף חדיר</span><small>חלחול</small></button>
+              <button class="element-toggle" data-element="market" aria-pressed="false"><span>דוכן שוק</span><small>מסחר</small></button>
+              <button class="element-toggle" data-element="shade" aria-pressed="false"><span>פרגולה</span><small>צל</small></button>
+              <button class="element-toggle" data-element="heritage" aria-pressed="false"><span>אבן מקומית</span><small>מורשת</small></button>
+            </div>
+
+            <div class="street-canvas-wrap">
+              <svg id="streetSvg" class="street-svg" viewBox="0 0 1000 360" role="img" aria-label="חתך רחוב אינטראקטיבי">
+                <rect width="1000" height="360" fill="#0b1016"></rect>
+                <text x="500" y="180" text-anchor="middle" fill="#a6adb8" font-size="22">החתך האינטראקטיבי זמין כאשר JavaScript פעיל</text>
+              </svg>
+              <div class="prototype-metrics" aria-live="polite">
+                <div><span>הצללה</span><strong id="shadeMetric">בינונית</strong></div>
+                <div><span>חלחול</span><strong id="drainMetric">נמוך</strong></div>
+                <div><span>פעילות רחוב</span><strong id="activityMetric">בינונית</strong></div>
               </div>
             </div>
-            <div class="balad-appactions">
-              <span class="balad-live"><i aria-hidden="true"></i><span data-balad-i18n="simLive">סימולציה פעילה</span></span>
-              <button class="balad-language" id="baladLanguage" type="button" aria-label="החלפת שפת הממשק לערבית">العربية</button>
+          </div>
+        </section>
+
+        <section class="library-section reveal" aria-labelledby="libraryTitle">
+          <div class="block-head">
+            <div>
+              <p class="kicker">שכבה 2</p>
+              <h3 id="libraryTitle">ספריית אלמנטים פתוחה</h3>
+            </div>
+            <div class="filter-group" aria-label="סינון ספריית אלמנטים">
+              <button class="library-filter active" data-library-filter="all" aria-pressed="true">הכול</button>
+              <button class="library-filter" data-library-filter="shade" aria-pressed="false">הצללה</button>
+              <button class="library-filter" data-library-filter="water" aria-pressed="false">מים</button>
+              <button class="library-filter" data-library-filter="commerce" aria-pressed="false">מסחר</button>
+              <button class="library-filter" data-library-filter="heritage" aria-pressed="false">מורשת</button>
             </div>
           </div>
 
-          <div class="balad-grid" id="baladGrid">
-            <aside class="balad-panel balad-library" id="baladLibrary" hidden aria-labelledby="baladLibraryTitle">
-              <div class="balad-panelhead">
-                <p class="kicker" data-balad-i18n="libraryKicker">ספרייה פתוחה</p>
-                <h3 id="baladLibraryTitle" data-balad-i18n="libraryTitle">אלמנטים לרחוב</h3>
-                <p data-balad-i18n="libraryDesc">לחצו כדי להוסיף עד שמונה אלמנטים לחתך.</p>
-              </div>
-              <div class="balad-elements">
-                <button type="button" data-balad-element="trees"><span aria-hidden="true">🌳</span><b data-balad-i18n="elTree">עץ צל</b></button>
-                <button type="button" data-balad-element="seating"><span aria-hidden="true">🪑</span><b data-balad-i18n="elBench">ספסל ישיבה</b></button>
-                <button type="button" data-balad-element="bike"><span aria-hidden="true">🚲</span><b data-balad-i18n="elBike">שביל אופניים</b></button>
-                <button type="button" data-balad-element="sidewalk"><span aria-hidden="true">🚶</span><b data-balad-i18n="elSidewalk">מדרכה</b></button>
-                <button type="button" data-balad-element="car"><span aria-hidden="true">🚗</span><b data-balad-i18n="elCar">נתיב רכב</b></button>
-                <button type="button" data-balad-element="transit"><span aria-hidden="true">🚌</span><b data-balad-i18n="elTransit">תחבורה ציבורית</b></button>
-                <button type="button" data-balad-element="parking"><span aria-hidden="true">🅿️</span><b data-balad-i18n="elParking">חניה</b></button>
-                <button type="button" data-balad-element="commercial"><span aria-hidden="true">☕</span><b data-balad-i18n="elCommercial">רחבה מסחרית</b></button>
-              </div>
-            </aside>
-
-            <div class="balad-panel balad-studio">
-              <div class="balad-panelhead balad-studiohead">
-                <div>
-                  <p class="kicker" data-balad-i18n="studioKicker">שכבה 1 + 2</p>
-                  <h3 id="baladAppTitle" data-balad-i18n="simTitle">לוח תכנון דינמי</h3>
-                  <p data-balad-i18n="simInstruct">בחרו אסטרטגיית התערבות ובחנו מיד את חתך הרחוב ואת מדדי ההשפעה.</p>
-                </div>
-                <span class="balad-demo-label" data-balad-i18n="demoLabel">מודל המחשה</span>
-              </div>
-
-              <div class="balad-location balad-map">
-                <iframe
-                  src="https://maps.google.com/maps?q=Street+70,+Kafr+Yasif,+Israel&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-                  title="מפה אינטראקטיבית של רחוב 70 בכפר יאסיף"
-                  loading="lazy"
-                  allowfullscreen
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
-                <div class="balad-mapmeta"><span data-balad-i18n="mapCaption">אתר הסימולציה</span><b data-balad-i18n="mapPlace">רחוב 70 · כפר יאסיף</b></div>
-              </div>
-
-              <div class="balad-canvas">
-                <div class="balad-canvaslabel" data-balad-i18n="canvasTitle">חתך רחוב דינמי</div>
-                <div class="balad-street" id="baladStreet" aria-live="polite"></div>
-                <p class="balad-custom-help" id="baladCustomHelp" data-balad-i18n="customHelp" hidden>הוסיפו אלמנטים מהספרייה; לחצו על מקטע בחתך כדי להסיר אותו.</p>
-              </div>
-
-              <fieldset class="balad-strategies">
-                <legend data-balad-i18n="strategyTitle">בחרו אסטרטגיית עיצוב</legend>
-                <div class="balad-strategy-list">
-                  <button class="balad-strategy-btn active" type="button" data-balad-strategy="default" aria-pressed="true"><i aria-hidden="true"></i><span data-balad-i18n="btnDefault">ציר תנועה סטנדרטי</span></button>
-                  <button class="balad-strategy-btn" type="button" data-balad-strategy="bike" aria-pressed="false"><i aria-hidden="true"></i><span data-balad-i18n="btnBike">נתיב אופניים מוגן</span></button>
-                  <button class="balad-strategy-btn" type="button" data-balad-strategy="parklet" aria-pressed="false"><i aria-hidden="true"></i><span data-balad-i18n="btnParklet">פארקלט קהילתי</span></button>
-                  <button class="balad-strategy-btn" type="button" data-balad-strategy="transit" aria-pressed="false"><i aria-hidden="true"></i><span data-balad-i18n="btnTransit">נתיב תחבורה ציבורית</span></button>
-                  <button class="balad-strategy-btn" type="button" data-balad-strategy="pedestrian" aria-pressed="false"><i aria-hidden="true"></i><span data-balad-i18n="btnPedestrian">מדרחוב מלא</span></button>
-                  <button class="balad-strategy-btn balad-strategy-custom" type="button" data-balad-strategy="custom" aria-pressed="false"><i aria-hidden="true">+</i><span data-balad-i18n="btnCustom">בנו הצעה משלכם</span></button>
-                </div>
-              </fieldset>
-            </div>
-
-            <aside class="balad-panel balad-analytics" aria-labelledby="baladMetricsTitle">
-              <div class="balad-panelhead">
-                <p class="kicker" data-balad-i18n="metricsKicker">שכבה 4</p>
-                <h3 id="baladMetricsTitle" data-balad-i18n="metricsTitle">מדדי השפעה</h3>
-                <p data-balad-i18n="metricsDesc">השוואה סימולטיבית בין חלופות התכנון.</p>
-              </div>
-
-              <div class="balad-context">
-                <span data-balad-i18n="contextLabel">החלופה הנוכחית</span>
-                <strong id="baladMetricContext">עורק מסחרי בצפיפות גבוהה</strong>
-              </div>
-
-              <div class="balad-metrics" aria-live="polite">
-                <div><span data-balad-i18n="labelPedestrian">הולכי רגל</span><strong id="baladMetricPedestrian">—</strong></div>
-                <div><span data-balad-i18n="labelNoise">רעש סביבתי</span><strong id="baladMetricNoise">—</strong></div>
-                <div><span data-balad-i18n="labelAirQuality">איכות אוויר</span><strong id="baladMetricAirQuality">—</strong></div>
-                <div><span data-balad-i18n="labelGreenSpace">שטח ירוק</span><strong id="baladMetricGreenSpace">—</strong></div>
-                <div><span data-balad-i18n="labelSafety">בטיחות</span><strong id="baladMetricSafety">—</strong></div>
-                <div><span data-balad-i18n="labelEconomic">עסקים מקומיים</span><strong id="baladMetricEconomic">—</strong></div>
-              </div>
-
-              <div class="balad-vote" id="baladVote">
-                <div class="balad-votehead">
-                  <div>
-                    <span data-balad-i18n="voteKicker">קונצנזוס קהילתי</span>
-                    <strong id="baladVoteTotal">42 / 100</strong>
-                  </div>
-                  <span class="balad-votepercent" id="baladVotePercent">42%</span>
-                </div>
-                <div class="balad-progress" role="progressbar" aria-label="התקדמות להצבעה קהילתית" aria-valuemin="0" aria-valuemax="100" aria-valuenow="42"><i id="baladVoteProgress"></i></div>
-                <p data-balad-i18n="voteText">האם להעביר את החלופה לבחינה רשמית מול גורמי התכנון?</p>
-                <button class="btn btn-primary balad-vote-btn" id="baladVoteButton" type="button"><span aria-hidden="true">↑</span><span data-balad-i18n="voteButton">הצביעו בעד</span></button>
-                <small data-balad-i18n="voteNote">נדרשות 100 הצבעות קהילתיות כדי להניע בחינה רשמית.</small>
-              </div>
-
-              <p class="balad-disclaimer" data-balad-i18n="disclaimer">המדדים הם נתוני דמו לצורך המחשה והשוואה בלבד — לא חישוב הנדסי.</p>
-              <p class="sr-only" id="baladStatus" aria-live="polite"></p>
-            </aside>
+          <div class="library-grid" id="libraryGrid">
+            <article data-library="shade"><b>פרגולת עץ</b><span>הצללה מודולרית</span></article>
+            <article data-library="shade"><b>גפן מטפסת</b><span>צל + צמחייה</span></article>
+            <article data-library="water"><b>תעלת מים פתוחה</b><span>ניקוז גלוי</span></article>
+            <article data-library="water"><b>אגן חלחול</b><span>השהיית נגר</span></article>
+            <article data-library="water"><b>ריצוף חדיר</b><span>חלחול מקומי</span></article>
+            <article data-library="commerce"><b>דוכן שוק</b><span>מסחר זמני</span></article>
+            <article data-library="commerce"><b>בית קפה</b><span>ישיבה ברחוב</span></article>
+            <article data-library="heritage"><b>אבן מקומית</b><span>שפה חומרית</span></article>
+            <article data-library="heritage"><b>קשת</b><span>אלמנט היסטורי</span></article>
           </div>
         </section>
 
@@ -711,12 +664,7 @@
           <div class="participation-copy">
             <p class="kicker">שכבה 3</p>
             <h3 id="mapTitle">מפת ידע מקומי</h3>
-            <p>נווטו במפת כפר יאסיף או עברו למצב סימון ובחרו סוג ידע מקומי להוספה. כך ניתן להמחיש איך מאות נקודות של תושבים עשויות להצטבר לשכבה משותפת.</p>
-
-            <div class="map-mode-controls" aria-label="מצב שימוש במפה">
-              <button class="map-mode-btn active" id="mapNavigateMode" type="button" aria-pressed="true"><span aria-hidden="true">✥</span>ניווט במפה</button>
-              <button class="map-mode-btn" id="mapMarkMode" type="button" aria-pressed="false"><span aria-hidden="true">＋</span>הוספת סימון</button>
-            </div>
+            <p>בחר סוג סימון ולחץ על המפה. כך ניתן להמחיש איך מאות נקודות של תושבים עשויות להצטבר לשכבת ידע מקומית.</p>
 
             <div class="marker-tools" role="radiogroup" aria-label="סוג סימון">
               <button class="marker-type active" data-marker="good" style="--marker:#57d887" role="radio" aria-checked="true">מקום מוצלח</button>
@@ -729,18 +677,11 @@
             <p class="sr-only" id="mapStatus" aria-live="polite"></p>
           </div>
 
-          <div class="map-demo" id="participationMap" role="group" tabindex="-1" aria-label="מפת Google אינטראקטיבית להשתתפות תושבים בכפר יאסיף" aria-describedby="mapInstructions">
-            <iframe
-              src="https://maps.google.com/maps?q=Kafr+Yasif,+Israel&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-              title="מפת Google אינטראקטיבית של כפר יאסיף"
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-            <div class="map-capture" id="mapCapture" aria-hidden="true"></div>
+          <div class="map-demo" id="participationMap" role="group" tabindex="0" aria-label="מפת השתתפות סכמטית" aria-describedby="mapInstructions">
+            <img src="assets/market-now.webp" alt="מבט אווירי על אזור מרכז כפר יאסיף" loading="lazy" />
             <div class="map-overlay" id="mapOverlay"></div>
             <span class="map-keyboard-cursor" id="mapKeyboardCursor" aria-hidden="true"></span>
-            <div class="map-hint" id="mapInstructions">גררו או הגדילו את המפה · עברו למצב סימון כדי להוסיף ידע מקומי</div>
+            <div class="map-hint" id="mapInstructions">לחץ/י כדי לסמן; במקלדת הזז/י עם החצים ואשר/י ב־Enter</div>
           </div>
         </section>
 
