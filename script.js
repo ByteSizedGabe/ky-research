@@ -216,148 +216,311 @@
     countObserver.observe(dashboard);
   }
 
-  // Street builder prototype
-  const streetState = {
-    sidewalk: true,
-    trees: true,
-    benches: true,
-    water: false,
-    permeable: false,
-    market: false,
-    shade: false,
-    heritage: false
-  };
-  const streetSvg = $('#streetSvg');
-  const streetWidth = $('#streetWidth');
-  const streetWidthOutput = $('#streetWidthOutput');
+  // BaladCanvas planning application
+  const baladApp = $('#baladApp');
+  if (baladApp) {
+    const baladTranslations = {
+      he: {
+        projectLabel: 'רחוב 70 · כפר יאסיף', simLive: 'סימולציה פעילה', libraryKicker: 'ספרייה פתוחה',
+        libraryTitle: 'אלמנטים לרחוב', libraryDesc: 'לחצו כדי להוסיף עד שמונה אלמנטים לחתך.',
+        elTree: 'עץ צל', elBench: 'ספסל ישיבה', elBike: 'שביל אופניים', elSidewalk: 'מדרכה',
+        elCar: 'נתיב רכב', elTransit: 'תחבורה ציבורית', elParking: 'חניה', elCommercial: 'רחבה מסחרית',
+        studioKicker: 'שכבה 1 + 2', simTitle: 'לוח תכנון דינמי',
+        simInstruct: 'בחרו אסטרטגיית התערבות ובחנו מיד את חתך הרחוב ואת מדדי ההשפעה.',
+        demoLabel: 'מודל המחשה', mapCaption: 'מפה אינטראקטיבית', mapPlace: 'רחוב 70 · כפר יאסיף',
+        mapAlt: 'מפה אינטראקטיבית של רחוב 70 בכפר יאסיף', canvasTitle: 'חתך רחוב דינמי',
+        customHelp: 'הוסיפו אלמנטים מהספרייה; לחצו על מקטע בחתך כדי להסיר אותו.',
+        strategyTitle: 'בחרו אסטרטגיית עיצוב', btnDefault: 'ציר תנועה סטנדרטי', btnBike: 'נתיב אופניים מוגן',
+        btnParklet: 'פארקלט קהילתי', btnTransit: 'נתיב תחבורה ציבורית', btnPedestrian: 'מדרחוב מלא',
+        btnCustom: 'בנו הצעה משלכם', metricsKicker: 'שכבה 4', metricsTitle: 'מדדי השפעה',
+        metricsDesc: 'השוואה סימולטיבית בין חלופות התכנון.', contextLabel: 'החלופה הנוכחית',
+        labelPedestrian: 'הולכי רגל', labelNoise: 'רעש סביבתי', labelAirQuality: 'איכות אוויר',
+        labelGreenSpace: 'שטח ירוק', labelSafety: 'בטיחות', labelEconomic: 'עסקים מקומיים',
+        voteKicker: 'קונצנזוס קהילתי', voteText: 'האם להעביר את החלופה לבחינה רשמית מול גורמי התכנון?',
+        voteButton: 'הצביעו בעד', votedButton: 'ההצבעה נקלטה',
+        voteNote: 'נדרשות 100 הצבעות קהילתיות כדי להניע בחינה רשמית.',
+        disclaimer: 'המדדים הם נתוני דמו לצורך המחשה והשוואה בלבד — לא חישוב הנדסי.',
+        progressLabel: 'התקדמות להצבעה קהילתית', pedestrianUnit: 'אנשים / שעה',
+        streetSidewalk: 'מדרכה', streetParking: 'חניה', streetCar: 'נסיעה', streetBike: 'אופניים',
+        streetParklet: 'פארקלט', streetTransit: 'נת״צ', streetPedestrian: 'נתיב הליכה',
+        streetCommercial: 'רחבה מסחרית', streetTrees: 'עצים וצמחייה', streetSeating: 'ספסלים וישיבה',
+        streetEmpty: 'רחוב ריק — התחילו לעצב', removeSegment: 'הסרת',
+        added: 'נוסף לחתך:', removed: 'הוסר מהחתך:', maxReached: 'ניתן להוסיף עד שמונה אלמנטים.',
+        voteRecorded: 'הצבעתכם נקלטה.', languageButton: 'العربية', languageLabel: 'החלפת שפת הממשק לערבית',
+        contexts: {
+          default: 'עורק מסחרי בצפיפות גבוהה', bike: 'ציר תנועה פעילה ואופניים',
+          parklet: 'אזור עירוניות טקטית ירוקה', transit: 'ציר מתעדף תחבורה ציבורית',
+          pedestrian: 'מרחב שהייה מבוסס הולכי רגל', custom: 'עיצוב קהילתי בהתאמה אישית'
+        }
+      },
+      ar: {
+        projectLabel: 'شارع 70 · كفر ياسيف', simLive: 'المحاكاة نشطة', libraryKicker: 'مكتبة مفتوحة',
+        libraryTitle: 'عناصر الشارع', libraryDesc: 'اضغطوا لإضافة حتى ثمانية عناصر إلى المقطع.',
+        elTree: 'شجرة ظل', elBench: 'مقعد جلوس', elBike: 'مسار دراجات', elSidewalk: 'رصيف',
+        elCar: 'مسار سيارات', elTransit: 'نقل عام', elParking: 'موقف سيارات', elCommercial: 'ساحة تجارية',
+        studioKicker: 'الطبقة 1 + 2', simTitle: 'لوحة تخطيط ديناميكية',
+        simInstruct: 'اختاروا استراتيجية تدخل وشاهدوا فوراً مقطع الشارع ومؤشرات التأثير.',
+        demoLabel: 'نموذج توضيحي', mapCaption: 'خريطة تفاعلية', mapPlace: 'شارع 70 · كفر ياسيف',
+        mapAlt: 'خريطة تفاعلية لشارع 70 في كفر ياسيف', canvasTitle: 'مقطع شارع ديناميكي',
+        customHelp: 'أضيفوا عناصر من المكتبة؛ اضغطوا على مقطع في الشارع لإزالته.',
+        strategyTitle: 'اختاروا استراتيجية التصميم', btnDefault: 'محور حركة اعتيادي', btnBike: 'مسار دراجات محمي',
+        btnParklet: 'باركليت مجتمعي', btnTransit: 'مسار نقل عام', btnPedestrian: 'شارع للمشاة',
+        btnCustom: 'ابنوا اقتراحكم', metricsKicker: 'الطبقة 4', metricsTitle: 'مؤشرات التأثير',
+        metricsDesc: 'مقارنة محاكاة بين بدائل التخطيط.', contextLabel: 'البديل الحالي',
+        labelPedestrian: 'حركة المشاة', labelNoise: 'الضوضاء', labelAirQuality: 'جودة الهواء',
+        labelGreenSpace: 'مساحة خضراء', labelSafety: 'السلامة', labelEconomic: 'الأعمال المحلية',
+        voteKicker: 'توافق مجتمعي', voteText: 'هل ننقل البديل إلى تقييم رسمي مع جهات التخطيط؟',
+        voteButton: 'صوّتوا مع', votedButton: 'تم تسجيل التصويت',
+        voteNote: 'مطلوب 100 صوت مجتمعي لبدء مراجعة رسمية.',
+        disclaimer: 'المؤشرات هي بيانات تجريبية للتوضيح والمقارنة فقط — وليست حساباً هندسياً.',
+        progressLabel: 'التقدم نحو تصويت مجتمعي', pedestrianUnit: 'شخص / ساعة',
+        streetSidewalk: 'رصيف', streetParking: 'موقف', streetCar: 'سيارات', streetBike: 'دراجات',
+        streetParklet: 'باركليت', streetTransit: 'نقل عام', streetPedestrian: 'مسار مشاة',
+        streetCommercial: 'ساحة تجارية', streetTrees: 'أشجار ونباتات', streetSeating: 'مقاعد وجلوس',
+        streetEmpty: 'شارع فارغ — ابدأوا التصميم', removeSegment: 'إزالة',
+        added: 'تمت الإضافة:', removed: 'تمت الإزالة:', maxReached: 'يمكن إضافة ثمانية عناصر كحد أقصى.',
+        voteRecorded: 'تم تسجيل تصويتكم.', languageButton: 'עברית', languageLabel: 'החלפת שפת הממשק לעברית',
+        contexts: {
+          default: 'محور تجاري عالي الكثافة', bike: 'محور للحركة النشطة والدراجات',
+          parklet: 'منطقة حضرية تكتيكية خضراء', transit: 'محور يعطي أولوية للنقل العام',
+          pedestrian: 'مساحة إقامة للمشاة', custom: 'تصميم مجتمعي مخصص'
+        }
+      }
+    };
 
-  function svgTree(x, ground) {
-    return `
-      <g transform="translate(${x} ${ground})">
-        <rect x="-5" y="-72" width="10" height="72" rx="3" fill="#76533c"/>
-        <circle cx="0" cy="-93" r="35" fill="#62e1a2" opacity=".95"/>
-        <circle cx="-22" cy="-82" r="21" fill="#50c88d"/>
-        <circle cx="21" cy="-81" r="22" fill="#49b77f"/>
-      </g>`;
-  }
+    const baladElementData = {
+      trees: { type: 'trees', key: 'streetTrees', icon: '🌳', effects: { ped: 10, noise: -2, aqi: -5, green: 15, safety: 1, econ: 2 } },
+      seating: { type: 'seating', key: 'streetSeating', icon: '🪑', effects: { ped: 25, noise: 0, aqi: 0, green: 0, safety: 1, econ: 5 } },
+      bike: { type: 'bike', key: 'streetBike', icon: '🚲', effects: { ped: 30, noise: -1, aqi: -2, green: 0, safety: 2, econ: 5 } },
+      sidewalk: { type: 'sidewalk', key: 'streetSidewalk', icon: '🚶', effects: { ped: 40, noise: -1, aqi: 0, green: 0, safety: 2, econ: 8 } },
+      car: { type: 'car', key: 'streetCar', icon: '🚗', effects: { ped: -15, noise: 12, aqi: 15, green: 0, safety: -2, econ: 4 } },
+      transit: { type: 'transit', key: 'streetTransit', icon: '🚌', effects: { ped: 35, noise: 4, aqi: 4, green: 0, safety: 1, econ: 8 } },
+      parking: { type: 'parking', key: 'streetParking', icon: '🅿️', effects: { ped: -5, noise: 2, aqi: 3, green: 0, safety: -1, econ: 7 } },
+      commercial: { type: 'commercial', key: 'streetCommercial', icon: '☕', effects: { ped: 50, noise: 5, aqi: 2, green: 0, safety: 0, econ: 20 } }
+    };
 
-  function svgBench(x, ground) {
-    return `
-      <g transform="translate(${x} ${ground})" stroke="#d3b27a" stroke-width="7" stroke-linecap="round">
-        <line x1="-24" y1="-24" x2="24" y2="-24"/>
-        <line x1="-18" y1="-15" x2="-18" y2="0"/>
-        <line x1="18" y1="-15" x2="18" y2="0"/>
-      </g>`;
-  }
+    const baladLayouts = {
+      default: [
+        { type: 'sidewalk', width: 20, key: 'streetSidewalk', icon: '🚶' },
+        { type: 'parking', width: 15, key: 'streetParking', icon: '🅿️' },
+        { type: 'car', width: 30, key: 'streetCar', icon: '🚗' },
+        { type: 'parking', width: 15, key: 'streetParking', icon: '🅿️' },
+        { type: 'sidewalk', width: 20, key: 'streetSidewalk', icon: '🚶' }
+      ],
+      bike: [
+        { type: 'sidewalk', width: 15, key: 'streetSidewalk', icon: '🚶' },
+        { type: 'bike', width: 15, key: 'streetBike', icon: '🚲' },
+        { type: 'car', width: 35, key: 'streetCar', icon: '🚗' },
+        { type: 'parking', width: 15, key: 'streetParking', icon: '🅿️' },
+        { type: 'sidewalk', width: 20, key: 'streetSidewalk', icon: '🚶' }
+      ],
+      parklet: [
+        { type: 'sidewalk', width: 20, key: 'streetSidewalk', icon: '🚶' },
+        { type: 'parklet', width: 20, key: 'streetParklet', icon: '🌳' },
+        { type: 'car', width: 30, key: 'streetCar', icon: '🚗' },
+        { type: 'parking', width: 10, key: 'streetParking', icon: '🅿️' },
+        { type: 'sidewalk', width: 20, key: 'streetSidewalk', icon: '🚶' }
+      ],
+      transit: [
+        { type: 'sidewalk', width: 15, key: 'streetSidewalk', icon: '🚶' },
+        { type: 'transit', width: 20, key: 'streetTransit', icon: '🚌' },
+        { type: 'car', width: 30, key: 'streetCar', icon: '🚗' },
+        { type: 'transit', width: 20, key: 'streetTransit', icon: '🚌' },
+        { type: 'sidewalk', width: 15, key: 'streetSidewalk', icon: '🚶' }
+      ],
+      pedestrian: [
+        { type: 'commercial', width: 15, key: 'streetCommercial', icon: '☕' },
+        { type: 'seating', width: 15, key: 'streetSeating', icon: '🪑' },
+        { type: 'pedestrian', width: 40, key: 'streetPedestrian', icon: '🚶' },
+        { type: 'trees', width: 15, key: 'streetTrees', icon: '🌳' },
+        { type: 'commercial', width: 15, key: 'streetCommercial', icon: '☕' }
+      ],
+      custom: []
+    };
 
-  function renderStreet() {
-    if (!streetSvg) return;
-    const width = Number(streetWidth.value);
-    streetWidthOutput.textContent = `${width} מ׳`;
+    const baladMetricsData = {
+      default: { pedestrian: 60, noise: 85, air: 75, green: 5, safety: 4, economic: 0 },
+      bike: { pedestrian: 140, noise: 62, air: 45, green: 15, safety: 7, economic: 5 },
+      parklet: { pedestrian: 210, noise: 54, air: 35, green: 40, safety: 8, economic: 12 },
+      transit: { pedestrian: 180, noise: 70, air: 55, green: 10, safety: 6, economic: 8 },
+      pedestrian: { pedestrian: 350, noise: 45, air: 25, green: 25, safety: 9, economic: 20 },
+      custom: { pedestrian: 0, noise: 40, air: 30, green: 0, safety: 5, economic: 0 }
+    };
+    const baladVotes = {
+      default: { voted: false, count: 42 }, bike: { voted: false, count: 89 },
+      parklet: { voted: false, count: 95 }, transit: { voted: false, count: 76 },
+      pedestrian: { voted: false, count: 112 }
+    };
 
-    const ground = 286;
-    const buildingW = 165;
-    const available = 1000 - buildingW * 2;
-    const sidewalkW = streetState.sidewalk ? Math.max(82, 150 - (width - 10) * 5) : 34;
-    const roadW = available - sidewalkW * 2;
-    const leftSidewalkX = buildingW;
-    const roadX = buildingW + sidewalkW;
-    const rightSidewalkX = roadX + roadW;
+    let baladLanguage = 'he';
+    let baladStrategy = 'default';
+    const baladGrid = $('#baladGrid');
+    const baladLibrary = $('#baladLibrary');
+    const baladStreet = $('#baladStreet');
+    const baladCustomHelp = $('#baladCustomHelp');
+    const baladVote = $('#baladVote');
+    const baladLanguageButton = $('#baladLanguage');
+    const baladStatus = $('#baladStatus');
+    const baladMetricNodes = {
+      context: $('#baladMetricContext'), pedestrian: $('#baladMetricPedestrian'), noise: $('#baladMetricNoise'),
+      air: $('#baladMetricAirQuality'), green: $('#baladMetricGreenSpace'), safety: $('#baladMetricSafety'),
+      economic: $('#baladMetricEconomic')
+    };
 
-    const stonePattern = streetState.heritage
-      ? `<pattern id="stone" width="30" height="18" patternUnits="userSpaceOnUse"><rect width="30" height="18" fill="#b99f7b"/><path d="M0 9H30M15 0V9M5 9V18M25 9V18" stroke="#8f7656" stroke-width="1"/></pattern>`
-      : '';
-    const permeablePattern = streetState.permeable
-      ? `<pattern id="pavers" width="18" height="18" patternUnits="userSpaceOnUse"><rect width="18" height="18" fill="#707978"/><circle cx="4" cy="4" r="1.5" fill="#9bc8a9"/><circle cx="13" cy="13" r="1.5" fill="#9bc8a9"/></pattern>`
-      : '';
-
-    let content = `
-      <defs>${stonePattern}${permeablePattern}</defs>
-      <rect x="0" y="0" width="1000" height="360" fill="#0b1016"/>
-      <rect x="0" y="${ground}" width="1000" height="74" fill="#191b1d"/>
-      <rect x="0" y="85" width="${buildingW}" height="${ground - 85}" fill="${streetState.heritage ? 'url(#stone)' : '#2f3540'}"/>
-      <rect x="${1000-buildingW}" y="105" width="${buildingW}" height="${ground - 105}" fill="${streetState.heritage ? 'url(#stone)' : '#343943'}"/>
-      <rect x="42" y="155" width="54" height="82" fill="#0b1016" stroke="#77808d"/>
-      <rect x="${1000-buildingW+52}" y="168" width="58" height="70" fill="#0b1016" stroke="#77808d"/>
-      <path d="M0 ${ground}H1000" stroke="#cfd5db" stroke-opacity=".25"/>
-      <rect x="${leftSidewalkX}" y="${ground-18}" width="${sidewalkW}" height="18" fill="${streetState.permeable ? 'url(#pavers)' : '#6b6d70'}"/>
-      <rect x="${rightSidewalkX}" y="${ground-18}" width="${sidewalkW}" height="18" fill="${streetState.permeable ? 'url(#pavers)' : '#6b6d70'}"/>
-      <rect x="${roadX}" y="${ground-10}" width="${roadW}" height="10" fill="#3a3c40"/>
-      <line x1="${roadX + roadW/2}" y1="${ground-6}" x2="${roadX + roadW/2}" y2="${ground+58}" stroke="#f3e6a8" stroke-width="3" stroke-dasharray="18 14" opacity=".7"/>
-      <text x="500" y="335" text-anchor="middle" fill="#8d95a0" font-size="18">רחוב ${width} מ׳</text>
-    `;
-
-    if (streetState.water) {
-      content += `<rect x="${roadX-9}" y="${ground-18}" width="18" height="18" rx="4" fill="#45b9ff" opacity=".9"/><rect x="${rightSidewalkX-9}" y="${ground-18}" width="18" height="18" rx="4" fill="#45b9ff" opacity=".9"/>`;
-    }
-    if (streetState.trees) {
-      content += svgTree(leftSidewalkX + sidewalkW * .52, ground - 18);
-      content += svgTree(rightSidewalkX + sidewalkW * .48, ground - 18);
-    }
-    if (streetState.benches) {
-      content += svgBench(leftSidewalkX + sidewalkW * .25, ground - 18);
-      content += svgBench(rightSidewalkX + sidewalkW * .75, ground - 18);
-    }
-    if (streetState.market) {
-      const x = rightSidewalkX + sidewalkW * .5;
-      content += `
-        <g transform="translate(${x} ${ground-18})">
-          <path d="M-52 -70H52L38 -45H-38Z" fill="#ff9f43"/>
-          <rect x="-42" y="-45" width="84" height="45" fill="#c86d2e"/>
-          <path d="M-42 -22H42" stroke="#ffe1bd" stroke-width="4"/>
-        </g>`;
-    }
-    if (streetState.shade) {
-      const left = leftSidewalkX - 8;
-      const right = rightSidewalkX + sidewalkW + 8;
-      content += `
-        <g opacity=".95">
-          <line x1="${left}" y1="${ground-138}" x2="${right}" y2="${ground-138}" stroke="#e0c386" stroke-width="8"/>
-          <line x1="${left}" y1="${ground-138}" x2="${left}" y2="${ground-18}" stroke="#e0c386" stroke-width="6"/>
-          <line x1="${right}" y1="${ground-138}" x2="${right}" y2="${ground-18}" stroke="#e0c386" stroke-width="6"/>
-          <rect x="${left}" y="${ground-141}" width="${right-left}" height="16" fill="#e0c386" opacity=".22"/>
-        </g>`;
-    }
-
-    streetSvg.innerHTML = content;
-
-    const shadeScore = (streetState.trees ? 2 : 0) + (streetState.shade ? 3 : 0);
-    const drainScore = (streetState.water ? 2 : 0) + (streetState.permeable ? 2 : 0) + (streetState.trees ? 1 : 0);
-    const activityScore = (streetState.benches ? 2 : 0) + (streetState.market ? 3 : 0) + (streetState.shade ? 1 : 0);
-    const label = score => score >= 4 ? 'גבוהה' : score >= 2 ? 'בינונית' : 'נמוכה';
-    $('#shadeMetric').textContent = label(shadeScore);
-    $('#drainMetric').textContent = label(drainScore);
-    $('#activityMetric').textContent = label(activityScore);
-  }
-
-  $$('.element-toggle').forEach(button => {
-    button.addEventListener('click', () => {
-      const key = button.dataset.element;
-      streetState[key] = !streetState[key];
-      button.classList.toggle('active', streetState[key]);
-      button.setAttribute('aria-pressed', String(streetState[key]));
-      renderStreet();
-    });
-  });
-  streetWidth?.addEventListener('input', renderStreet);
-  renderStreet();
-
-  // Open element library filter
-  $$('.library-filter').forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.dataset.libraryFilter;
-      $$('.library-filter').forEach(btn => {
-        const selected = btn === button;
-        btn.classList.toggle('active', selected);
-        btn.setAttribute('aria-pressed', String(selected));
+    const calculateBaladCustomMetrics = () => {
+      const value = { pedestrian: 10, noise: 40, air: 30, green: 0, safety: 5, economic: 0 };
+      baladLayouts.custom.forEach(item => {
+        const effects = baladElementData[item.element].effects;
+        value.pedestrian += effects.ped;
+        value.noise += effects.noise;
+        value.air += effects.aqi;
+        value.green += effects.green;
+        value.safety += effects.safety;
+        value.economic += effects.econ;
       });
-      $$('#libraryGrid article').forEach(card => {
-        const visible = filter === 'all' || card.dataset.library === filter;
-        card.classList.toggle('hidden', !visible);
-        card.hidden = !visible;
+      baladMetricsData.custom = {
+        pedestrian: Math.max(0, value.pedestrian), noise: Math.max(30, Math.min(100, value.noise)),
+        air: Math.max(10, Math.min(150, value.air)), green: Math.min(100, value.green),
+        safety: Math.max(1, Math.min(10, value.safety)), economic: value.economic
+      };
+    };
+
+    const applyBaladTranslation = () => {
+      const lang = baladTranslations[baladLanguage];
+      $$('[data-balad-i18n]', baladApp).forEach(node => {
+        const value = lang[node.dataset.baladI18n];
+        if (typeof value === 'string') node.textContent = value;
+      });
+      baladApp.lang = baladLanguage;
+      baladLanguageButton.textContent = lang.languageButton;
+      baladLanguageButton.setAttribute('aria-label', lang.languageLabel);
+      const mapFrame = $('.balad-location iframe', baladApp);
+      if (mapFrame) mapFrame.title = lang.mapAlt;
+      const progress = $('.balad-progress', baladApp);
+      if (progress) progress.setAttribute('aria-label', lang.progressLabel);
+    };
+
+    const renderBaladStreet = () => {
+      const lang = baladTranslations[baladLanguage];
+      const layout = baladLayouts[baladStrategy];
+      baladStreet.innerHTML = '';
+      if (!layout.length) {
+        const empty = document.createElement('div');
+        empty.className = 'balad-segment balad-segment-empty';
+        empty.innerHTML = `<span class="balad-segment-icon" aria-hidden="true">✦</span><span class="balad-segment-label">${lang.streetEmpty}</span>`;
+        baladStreet.appendChild(empty);
+        return;
+      }
+      layout.forEach((segment, index) => {
+        const removable = baladStrategy === 'custom';
+        const node = document.createElement(removable ? 'button' : 'div');
+        node.className = `balad-segment balad-segment-${segment.type}`;
+        node.style.width = `${removable ? 100 / layout.length : segment.width}%`;
+        node.innerHTML = `<span class="balad-segment-icon" aria-hidden="true">${segment.icon}</span><span class="balad-segment-label">${lang[segment.key]}</span>`;
+        if (removable) {
+          node.type = 'button';
+          node.setAttribute('aria-label', `${lang.removeSegment} ${lang[segment.key]}`);
+          node.addEventListener('click', () => {
+            const removed = baladLayouts.custom.splice(index, 1)[0];
+            baladStatus.textContent = `${lang.removed} ${lang[removed.key]}`;
+            updateBaladDashboard();
+          });
+        }
+        baladStreet.appendChild(node);
+      });
+    };
+
+    const updateBaladDashboard = () => {
+      const lang = baladTranslations[baladLanguage];
+      const custom = baladStrategy === 'custom';
+      baladGrid.classList.toggle('custom-active', custom);
+      baladLibrary.hidden = !custom;
+      baladCustomHelp.hidden = !custom;
+      baladVote.hidden = custom;
+      if (custom) calculateBaladCustomMetrics();
+      applyBaladTranslation();
+      renderBaladStreet();
+
+      const metric = baladMetricsData[baladStrategy];
+      baladMetricNodes.context.textContent = lang.contexts[baladStrategy];
+      baladMetricNodes.pedestrian.textContent = `${metric.pedestrian} ${lang.pedestrianUnit}`;
+      baladMetricNodes.noise.textContent = `${metric.noise} dB`;
+      baladMetricNodes.air.textContent = `${metric.air} AQI`;
+      baladMetricNodes.green.textContent = `${metric.green}%`;
+      baladMetricNodes.safety.textContent = `${metric.safety}/10`;
+      baladMetricNodes.economic.textContent = `${metric.economic > 0 ? '+' : ''}${metric.economic}%`;
+      Object.values(baladMetricNodes).forEach((node, index) => {
+        if (index > 0) node.classList.toggle('positive', baladStrategy !== 'default' && baladLayouts[baladStrategy].length > 0);
+      });
+
+      if (!custom) {
+        const vote = baladVotes[baladStrategy];
+        const percent = Math.min(vote.count, 100);
+        $('#baladVoteTotal').textContent = `${vote.count} / 100`;
+        $('#baladVotePercent').textContent = `${percent}%`;
+        $('#baladVoteProgress').style.width = `${percent}%`;
+        const progress = $('.balad-progress', baladApp);
+        progress.setAttribute('aria-valuenow', String(percent));
+        const voteButton = $('#baladVoteButton');
+        voteButton.disabled = vote.voted;
+        $('[data-balad-i18n="voteButton"]', voteButton).textContent = vote.voted ? lang.votedButton : lang.voteButton;
+      }
+    };
+
+    const baladStrategyButtons = $$('.balad-strategy-btn', baladApp);
+    baladStrategyButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        baladStrategy = button.dataset.baladStrategy;
+        baladStrategyButtons.forEach(item => {
+          const active = item === button;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+        updateBaladDashboard();
+      });
+      button.addEventListener('keydown', event => {
+        if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
+        event.preventDefault();
+        const forward = event.key === 'ArrowLeft' || event.key === 'ArrowDown';
+        const next = baladStrategyButtons[(index + (forward ? 1 : -1) + baladStrategyButtons.length) % baladStrategyButtons.length];
+        next.focus();
+        next.click();
       });
     });
-  });
+
+    $$('[data-balad-element]', baladApp).forEach(button => {
+      button.addEventListener('click', () => {
+        if (baladStrategy !== 'custom') return;
+        const lang = baladTranslations[baladLanguage];
+        if (baladLayouts.custom.length >= 8) {
+          baladStatus.textContent = lang.maxReached;
+          return;
+        }
+        const element = button.dataset.baladElement;
+        const data = baladElementData[element];
+        baladLayouts.custom.push({ type: data.type, element, key: data.key, icon: data.icon });
+        baladStatus.textContent = `${lang.added} ${lang[data.key]}`;
+        updateBaladDashboard();
+      });
+    });
+
+    baladLanguageButton.addEventListener('click', () => {
+      baladLanguage = baladLanguage === 'he' ? 'ar' : 'he';
+      updateBaladDashboard();
+    });
+
+    $('#baladVoteButton').addEventListener('click', () => {
+      if (baladStrategy === 'custom') return;
+      const vote = baladVotes[baladStrategy];
+      if (vote.voted) return;
+      vote.count += 1;
+      vote.voted = true;
+      baladStatus.textContent = baladTranslations[baladLanguage].voteRecorded;
+      updateBaladDashboard();
+    });
+
+    updateBaladDashboard();
+  }
 
   // Participation map markers
   const markerColors = {
@@ -368,7 +531,39 @@
     sit: '#ffb45c'
   };
   let markerType = 'good';
+  let markerMode = false;
   const markerButtons = $$('.marker-type');
+  const map = $('#participationMap');
+  const mapCapture = $('#mapCapture');
+  const overlay = $('#mapOverlay');
+  const mapCursor = $('#mapKeyboardCursor');
+  const mapStatus = $('#mapStatus');
+  const mapHint = $('#mapInstructions');
+  const navigateModeButton = $('#mapNavigateMode');
+  const markModeButton = $('#mapMarkMode');
+  const keyboardPosition = { x: 50, y: 50 };
+
+  const setMapMode = (marking, focusMap = false) => {
+    markerMode = marking;
+    map?.classList.toggle('marking', marking);
+    if (map) map.tabIndex = marking ? 0 : -1;
+    navigateModeButton?.classList.toggle('active', !marking);
+    navigateModeButton?.setAttribute('aria-pressed', String(!marking));
+    markModeButton?.classList.toggle('active', marking);
+    markModeButton?.setAttribute('aria-pressed', String(marking));
+    if (mapHint) {
+      mapHint.textContent = marking
+        ? 'לחצו כדי לסמן · במקלדת הזיזו עם החצים ואשרו ב־Enter'
+        : 'גררו או הגדילו את המפה · עברו למצב סימון כדי להוסיף ידע מקומי';
+    }
+    if (mapStatus) {
+      mapStatus.textContent = marking
+        ? `מצב הוספת סימונים פעיל. סוג הסימון: ${markerLabel()}.`
+        : 'מצב ניווט במפה פעיל.';
+    }
+    if (marking && focusMap) map?.focus();
+  };
+
   const selectMarkerType = (button, moveFocus = false) => {
     if (!button) return;
     markerType = button.dataset.marker;
@@ -378,6 +573,7 @@
       btn.setAttribute('aria-checked', String(selected));
       btn.tabIndex = selected ? 0 : -1;
     });
+    setMapMode(true);
     if (moveFocus) button.focus();
   };
   markerButtons.forEach((button, index) => {
@@ -390,13 +586,15 @@
       selectMarkerType(markerButtons[nextIndex], true);
     });
   });
-  selectMarkerType(markerButtons.find(button => button.classList.contains('active')) || markerButtons[0]);
+  const initialMarker = markerButtons.find(button => button.classList.contains('active')) || markerButtons[0];
+  if (initialMarker) {
+    markerType = initialMarker.dataset.marker;
+    markerButtons.forEach(button => button.tabIndex = button === initialMarker ? 0 : -1);
+  }
 
-  const map = $('#participationMap');
-  const overlay = $('#mapOverlay');
-  const mapCursor = $('#mapKeyboardCursor');
-  const mapStatus = $('#mapStatus');
-  const keyboardPosition = { x: 50, y: 50 };
+  navigateModeButton?.addEventListener('click', () => setMapMode(false));
+  markModeButton?.addEventListener('click', () => setMapMode(true, true));
+  setMapMode(false);
 
   const markerLabel = () => $(`.marker-type[data-marker="${markerType}"]`)?.textContent.trim() || markerType;
   const updateMapCursor = () => {
@@ -422,13 +620,14 @@
     }
   };
 
-  map?.addEventListener('click', event => {
-    const rect = map.getBoundingClientRect();
+  mapCapture?.addEventListener('click', event => {
+    const rect = mapCapture.getBoundingClientRect();
     const x = ((event.clientX - rect.left) / rect.width) * 100;
     const y = ((event.clientY - rect.top) / rect.height) * 100;
     addMapMarker(x, y);
   });
   map?.addEventListener('keydown', event => {
+    if (!markerMode) return;
     const movements = {
       ArrowLeft: [-2, 0],
       ArrowRight: [2, 0],
