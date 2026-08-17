@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="אתר אינטראקטיבי להצעת המחקר: בין קו המגרש לרחוב — שיתוף ציבור דיגיטלי ואדריכלות בקוד פתוח בתכנון המרחב בכפר יאסיף." />
+  <title>בין קו המגרש לרחוב | כפר יאסיף</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="חזרה לראש העמוד">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>
+          <strong>בין קו המגרש לרחוב</strong>
+          <small>כפר יאסיף · מחקר בתכנון משתף</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="ניווט ראשי">
+        <a href="#research">המחקר</a>
+        <a href="#context">הקשר</a>
+        <a href="#method">מתודולוגיה</a>
+        <a href="#gallery">גלריה</a>
+        <a href="#application">יישום</a>
+        <a href="#contribution">תרומה</a>
+        <a href="#sources">מקורות</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section-pad" aria-labelledby="heroTitle">
+      <div class="shell hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">הצעת מחקר · בית ספר לאדריכלות</p>
+          <h1 id="heroTitle">בין <span>קו המגרש</span> לרחוב</h1>
+          <p class="hero-subtitle">שיתוף ציבור דיגיטלי ואדריכלות בקוד פתוח בתכנון המרחב הציבורי בכפר יאסיף.</p>
+          <p class="hero-lede">המחקר בוחן כיצד כלים דיגיטליים יכולים להפוך תושבים ממשתתפים פסיביים לשותפים פעילים בעיצוב הרחוב — מבלי להתעלם מהמורכבות של בעלות פרטית על קרקע, זיכרון מקומי וצרכים ציבוריים.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#application">לנסות את אב־הטיפוס</a>
+            <a class="btn btn-ghost" href="#research">להבין את המחקר</a>
+          </div>
+          <div class="meta-row" aria-label="פרטי המחקר">
+            <span>מגיש: גבריאל עבוד</span>
+            <span>קולוקוויום ב׳</span>
+            <span>כפר יאסיף</span>
+          </div>
+        </div>
+
+        <div class="boundary-demo panel reveal" aria-label="המחשה אינטראקטיבית של המתח בין קרקע פרטית למרחב ציבורי">
+          <div class="panel-head">
+            <div>
+              <p class="kicker">המתח המרכזי</p>
+              <h2>פרטי ↔ ציבורי</h2>
+            </div>
+            <span class="status-dot">אינטראקטיבי</span>
+          </div>
+
+          <div class="boundary-stage" id="boundaryStage">
+            <div class="private-zone" id="privateZone">
+              <span class="zone-label">קרקע פרטית</span>
+              <div class="house" aria-hidden="true"><span></span></div>
+            </div>
+            <div class="public-zone" id="publicZone">
+              <span class="zone-label">מרחב ציבורי</span>
+              <div class="street-lines" aria-hidden="true"></div>
+            </div>
+            <div class="plot-line" id="plotLine" aria-hidden="true"><span>קו המגרש</span></div>
+          </div>
+
+          <label class="range-label" for="boundaryRange">
+            <span>הזז את קו המגרש</span>
+            <output id="boundaryOutput">68% פרטי · 32% ציבורי</output>
+          </label>
+          <input id="boundaryRange" type="range" min="42" max="82" value="68" />
+          <p class="microcopy">המחשה רעיונית בלבד: המחקר שואל כיצד ניתן לגשר בין זכויות פרטיות לצרכים ציבוריים באמצעות תהליך שקוף ומשותף.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad section-rule" id="research" aria-labelledby="researchTitle">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">01 · מבוא</p>
+          <h2 id="researchTitle">שאלת המחקר</h2>
+          <p class="question">האם יכולים כלים דיגיטליים של אדריכלות בקוד פתוח ושיתוף ציבור לסייע בגישור בין אינטרסים פרטיים לבין צרכים ציבוריים בתכנון המרחב הציבורי בכפר יאסיף?</p>
+        </div>
+
+        <div class="goal-grid">
+          <article class="goal-card reveal">
+            <span>01</span>
+            <h3>מטרה תיאורטית</h3>
+            <p>לבחון את הקשר בין בעלות פרטית על קרקע, שיתוף ציבור ואדריכלות בקוד פתוח בהקשר של יישובים ערביים בישראל.</p>
+          </article>
+          <article class="goal-card reveal">
+            <span>02</span>
+            <h3>מטרה מחקרית</h3>
+            <p>לזהות חסמים והזדמנויות לשיתוף תושבים בתכנון המרחב הציבורי בכפר יאסיף.</p>
+          </article>
+          <article class="goal-card reveal">
+            <span>03</span>
+            <h3>מטרה יישומית</h3>
+            <p>לבחון כיצד כלים דיגיטליים יכולים לסייע לתושבים להבין, לדמיין ולהעריך חלופות תכנוניות.</p>
+          </article>
+          <article class="goal-card reveal">
+            <span>04</span>
+            <h3>מטרה תכנונית</h3>
+            <p>לגבש עקרונות למערכת השתתפות דיגיטלית לקבלת החלטות משותפת בנושאי רחוב, הצללה, ניקוז, מסחר ומרחבים ציבוריים.</p>
+          </article>
+        </div>
+
+        <div class="hypothesis panel reveal">
+          <div>
+            <p class="kicker">השערת המחקר</p>
+            <h3>יותר שקיפות, פחות חוסר־ודאות</h3>
+          </div>
+          <p>ההשערה היא שחלק מההתנגדויות לשינויים במרחב הציבורי נובע ממחסור במידע וביכולת להבין את השלכות ההתערבות. מערכת פתוחה שמאפשרת לבחון, לערוך ולהשוות חלופות עשויה להגביר אמון, לצמצם התנגדויות ולבנות שותפות.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad soft-bg" id="context" aria-labelledby="contextTitle">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">02 · הבעיה</p>
+          <h2 id="contextTitle">המרחב הציבורי תחת לחץ</h2>
+          <p>המחקר מציב יחד שלושה לחצים: מחסור בשטחים ציבוריים וירוקים, בעלות פרטית מפוצלת, ותהליכי תכנון שמתקשים לייצר השפעה ישירה לתושבים.</p>
+        </div>
+
+        <div class="problem-tabs" role="tablist" aria-label="נושאי הבעיה">
+          <button class="tab-btn active" id="problemTabSpace" data-problem="space" role="tab" aria-selected="true" aria-controls="problemPanelSpace">מרחב ציבורי</button>
+          <button class="tab-btn" id="problemTabLand" data-problem="land" role="tab" aria-selected="false" aria-controls="problemPanelLand">קרקע וקניין</button>
+          <button class="tab-btn" id="problemTabClimate" data-problem="climate" role="tab" aria-selected="false" aria-controls="problemPanelClimate">אקלים ותשתיות</button>
+        </div>
+
+        <div class="problem-panels">
+          <div class="problem-panel active" id="problemPanelSpace" data-problem-panel="space" role="tabpanel" aria-labelledby="problemTabSpace">
+            <div class="metric-card">
+              <strong>3%</strong>
+              <span>כיסוי חופות עצים בשטח הבנוי בכפר יאסיף</span>
+            </div>
+            <div class="metric-card">
+              <strong>4%</strong>
+              <span>ממוצע השוואתי ברשויות אחרות שמופיע במקור המחקרי</span>
+            </div>
+            <div class="metric-card">
+              <strong>מחסור</strong>
+              <span>בשטחי ציבור, אזורים פתוחים ושטחים ירוקים</span>
+            </div>
+          </div>
+
+          <div class="problem-panel" id="problemPanelLand" data-problem-panel="land" role="tabpanel" aria-labelledby="problemTabLand">
+            <div class="metric-card">
+              <strong>פרטי</strong>
+              <span>חלק משמעותי מהקרקע בנוי סביב בעלות משפחתית פרטית</span>
+            </div>
+            <div class="metric-card">
+              <strong>צפוף</strong>
+              <span>גבולות ותיקים וגידול באוכלוסייה מצמצמים אפשרויות פיתוח</span>
+            </div>
+            <div class="metric-card">
+              <strong>רגיש</strong>
+              <span>התערבות ברחוב נתפסת גם דרך השפעתה על רכוש וזכויות</span>
+            </div>
+          </div>
+
+          <div class="problem-panel" id="problemPanelClimate" data-problem-panel="climate" role="tabpanel" aria-labelledby="problemTabClimate">
+            <div class="metric-card">
+              <strong>חום</strong>
+              <span>מיעוט עצים לצד משטחים קשיחים מגביר הצטברות חום</span>
+            </div>
+            <div class="metric-card">
+              <strong>נגר</strong>
+              <span>ריבוי אספלט וריצוף מצמצם חלחול ומחריף עומס ניקוז</span>
+            </div>
+            <div class="metric-card">
+              <strong>ריק</strong>
+              <span>בתים ותיקים במרכז ההיסטורי נותרו בחלקם מוזנחים או לא מאוכלסים</span>
+            </div>
+          </div>
+        </div>
+        <p class="source-note">מקור נתוני חופות העצים והמחסור בשטח ציבורי: <a href="#source-local">תוכנית ההיערכות לשינויי האקלים 2030</a>. מקור שכבות הבעלות: <a href="#source-visual">GovMap</a>.</p>
+
+        <figure class="wide-figure reveal">
+          <img src="assets/location.webp" alt="מפות מיקום כפר יאסיף והסביבה מתוך הצעת המחקר" loading="lazy" />
+          <figcaption>כפר יאסיף ממוקם בגליל המערבי בין עכו לנהריה; שטח היישוב המוצג במחקר הוא כ־3.2 קמ״ר.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section-pad section-rule" aria-labelledby="theoryTitle">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">03 · סקירת ספרות</p>
+          <h2 id="theoryTitle">מהשתתפות — לשותפות דיגיטלית</h2>
+          <p>המסגרת מחברת בין שיתוף ציבור, קניין ומרחב, אדריכלות בקוד פתוח וכלים דיגיטליים להשתתפות.</p>
+        </div>
+
+        <div class="theory-layout reveal">
+          <div class="theory-tabs" role="tablist" aria-label="תחומי סקירת הספרות">
+            <button class="theory-tab active" id="theoryTabParticipation" data-theory="participation" role="tab" aria-selected="true" aria-controls="theoryPanelParticipation">שיתוף ציבור</button>
+            <button class="theory-tab" id="theoryTabLand" data-theory="land" role="tab" aria-selected="false" aria-controls="theoryPanelLand">קניין ומרחב</button>
+            <button class="theory-tab" id="theoryTabOpen" data-theory="open" role="tab" aria-selected="false" aria-controls="theoryPanelOpen">קוד פתוח</button>
+            <button class="theory-tab" id="theoryTabDigital" data-theory="digital" role="tab" aria-selected="false" aria-controls="theoryPanelDigital">כלים דיגיטליים</button>
+          </div>
+
+          <div class="theory-content panel">
+            <article class="theory-panel active" id="theoryPanelParticipation" data-theory-panel="participation" role="tabpanel" aria-labelledby="theoryTabParticipation">
+              <p class="kicker">Digital Co-Design</p>
+              <h3>להעלות את מדרגת ההשתתפות</h3>
+              <p>בהשראת סולם ארנשטיין ותיאוריות של אזרחות דיגיטלית, היעד אינו רק ליידע או להתייעץ — אלא לאפשר לתושבים לקחת חלק בעיצוב חלופות ובהחלטות.</p>
+            </article>
+            <article class="theory-panel" id="theoryPanelLand" data-theory-panel="land" role="tabpanel" aria-labelledby="theoryTabLand">
+              <p class="kicker">Spatial Justice</p>
+              <h3>בעלות פרטית היא חלק מהתכנון, לא הערת שוליים</h3>
+              <p>ביישובים ערביים, מבנה הקניין הפרטי מעצב את אפשרויות הפיתוח ואת היחס להתערבויות ציבוריות. המחקר בוחן כיצד תהליך משתף יכול לתווך את המתח הזה.</p>
+            </article>
+            <article class="theory-panel" id="theoryPanelOpen" data-theory-panel="open" role="tabpanel" aria-labelledby="theoryTabOpen">
+              <p class="kicker">Open Source Urbanism</p>
+              <h3>מהקוד הפתוח אל הרחוב הפתוח</h3>
+              <p>כמו בתוכנה: מודל משותף שניתן לצפות בו, לערוך אותו, להשוות גרסאות ולהשתמש בו מחדש. ה״בעלות״ עוברת מן האובייקט בלבד אל התהליך והידע המשותף.</p>
+            </article>
+            <article class="theory-panel" id="theoryPanelDigital" data-theory-panel="digital" role="tabpanel" aria-labelledby="theoryTabDigital">
+              <p class="kicker">PPGIS · Co-Creation</p>
+              <h3>מפה, חתך רחוב והדמיה — באותה שיחה</h3>
+              <p>כלים דיגיטליים יכולים להציג את ההשלכות של החלטות תכנון בצורה נגישה: על מפה, בחתך רחוב, באמצעות קטלוג אלמנטים ובתרחישים חזותיים.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="tools-block reveal">
+          <div class="block-head">
+            <div>
+              <p class="kicker">פלטפורמות שנבחנו</p>
+              <h3>ארבעה דפוסי השתתפות</h3>
+            </div>
+            <div class="filter-group" aria-label="סינון פלטפורמות">
+              <button class="filter-btn active" data-tool-filter="all" aria-pressed="true">הכול</button>
+              <button class="filter-btn" data-tool-filter="design" aria-pressed="false">עיצוב</button>
+              <button class="filter-btn" data-tool-filter="governance" aria-pressed="false">ממשל</button>
+              <button class="filter-btn" data-tool-filter="mapping" aria-pressed="false">מיפוי</button>
+            </div>
+          </div>
+
+          <div class="tool-grid" id="toolGrid">
+            <article class="tool-card" data-tool="design">
+              <span class="tool-index">01</span>
+              <h4>Streetmix</h4>
+              <p>פלטפורמת קוד פתוח שמאפשרת לכל אדם להרכיב חתך רחוב באמצעות גרירה ושחרור של אלמנטים.</p>
+              <small>מוקד: עיצוב רחוב</small>
+            </article>
+            <article class="tool-card" data-tool="governance">
+              <span class="tool-index">02</span>
+              <h4>Decidim</h4>
+              <p>תשתית קוד פתוח לתהליכי השתתפות מרובי שלבים, הצעות, דיונים, מפגשים ומעקב אחר יישום.</p>
+              <small>מוקד: תהליכים ארוכי טווח</small>
+            </article>
+            <article class="tool-card" data-tool="governance">
+              <span class="tool-index">03</span>
+              <h4>Consul Democracy</h4>
+              <p>כלים להצעות אזרחיות, הצבעה, תקציב שיתופי וחקיקה שיתופית.</p>
+              <small>מוקד: קבלת החלטות</small>
+            </article>
+            <article class="tool-card" data-tool="mapping">
+              <span class="tool-index">04</span>
+              <h4>Maptionnaire</h4>
+              <p>שאלונים אינטראקטיביים מבוססי מפה וכלי PPGIS שמחברים בין חוויית תושב למיקום גיאוגרפי.</p>
+              <small>מוקד: ידע מקומי מרחבי</small>
+            </article>
+          </div>
+          <p class="source-note">מקורות משלימים: <a href="#source-arnstein">ספרות ההשתתפות</a>, <a href="#source-digital">מחקרי PPGIS והשתתפות דיגיטלית</a>, <a href="#source-open">מקורות הקוד הפתוח</a>, ועמודי המוצר הרשמיים של <a href="#source-platforms">הפלטפורמות שנבחנו</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad soft-bg" id="method" aria-labelledby="methodTitle">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">04 · מתודולוגיה</p>
+          <h2 id="methodTitle">כפר יאסיף כמקרה בוחן</h2>
+          <p>המתודולוגיה משלבת קריאה של המרחב כפי שהוא היום עם שכבות היסטוריות, מסמכי תכנון, ראיונות ומקרי בוחן בינלאומיים.</p>
+        </div>
+
+        <ol class="method-steps">
+          <li class="reveal"><strong>01</strong><span><b>ניתוח מרחבי</b> — תיעוד רחובות, חתכים, שימושים, תנועה וממשק בין מגרש לרחוב.</span></li>
+          <li class="reveal"><strong>02</strong><span><b>ניתוח פוטוגרמטרי וקרטוגרפי</b> — השוואת מפות ותצלומי אוויר היסטוריים לעכשוויים.</span></li>
+          <li class="reveal"><strong>03</strong><span><b>ניתוח מסמכים</b> — תכנית המתאר, נספח שיתוף הציבור, פרוגרמות ונתוני בינוי.</span></li>
+          <li class="reveal"><strong>04</strong><span><b>ראיונות</b> — מתכננים, בעלי עניין ותושבים, כולל סיפורי מקום וזיכרון.</span></li>
+          <li class="reveal"><strong>05</strong><span><b>מקרי בוחן</b> — Piazze Aperte במילאנו ו-Parklets בסן פרנסיסקו.</span></li>
+        </ol>
+        <p class="source-note">מקורות: <a href="#source-planning">תוכנית המתאר הכוללנית</a>, <a href="#source-visual">מפות, תצלומי אוויר וארכיונים</a>, <a href="#source-cases">מקרי הבוחן הבינלאומיים</a>, ומצגת המחקר הראשית.</p>
+
+        <div class="timeline panel reveal" aria-labelledby="timelineTitle">
+          <div class="timeline-copy">
+            <p class="kicker">שינוי רשת הדרכים</p>
+            <h3 id="timelineTitle">מ־1941 ועד היום</h3>
+            <div class="timeline-controls" role="group" aria-label="בחירת שנה">
+              <button class="timeline-btn active" data-year="1941" aria-pressed="true">1941</button>
+              <button class="timeline-btn" data-year="1947" aria-pressed="false">1947</button>
+              <button class="timeline-btn" data-year="2026" aria-pressed="false">2026</button>
+            </div>
+            <div id="timelineDescription" aria-live="polite">
+              <h4 id="timelineHeading">רחוב 103 כמסלול הליכה היסטורי</h4>
+              <p id="timelineText">במיפוי ההיסטורי רחוב 103 מופיע כ־Track / Footpath, כחלק ממערכת דרכים שמקשרת בין הכפר, השדות והצירים האזוריים.</p>
+            </div>
+          </div>
+          <div class="timeline-image-wrap">
+            <img id="timelineImage" src="assets/historic-1941.webp" alt="מפה היסטורית של כפר יאסיף משנת 1941" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="memory-grid">
+          <figure class="memory-card reveal">
+            <img src="assets/market-then.webp" alt="תיעוד היסטורי של רחבת השוק בכפר יאסיף" loading="lazy" />
+            <figcaption><strong>אז</strong><span>רחבת השוק והדרכים המובילות אליה שימשו מוקד מסחרי, חברתי וקהילתי.</span></figcaption>
+          </figure>
+          <figure class="memory-card reveal">
+            <img src="assets/market-now.webp" alt="מבט אווירי עכשווי על רחבת השוק בכפר יאסיף" loading="lazy" />
+            <figcaption><strong>היום</strong><span>הרחבה מתפקדת במידה רבה כמגרש חניה ומרחב מוטה רכב.</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="data-dashboard reveal" aria-labelledby="dataTitle">
+          <div class="block-head">
+            <div>
+              <p class="kicker">נתוני בינוי</p>
+              <h3 id="dataTitle">יותר שטח, פחות צפיפות</h3>
+            </div>
+            <span class="status-dot">2005–2014</span>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="dash-card">
+              <span class="dash-label">בניין עם דירה אחת</span>
+              <strong data-count="49.4">49.4</strong><em>%</em>
+              <div class="bar"><i style="--value:49.4%"></i></div>
+            </article>
+            <article class="dash-card">
+              <span class="dash-label">בניין עם 2 דירות</span>
+              <strong data-count="35">35</strong><em>%</em>
+              <div class="bar"><i style="--value:35%"></i></div>
+            </article>
+            <article class="dash-card">
+              <span class="dash-label">דירות עם 6 חדרים ומעלה</span>
+              <strong data-count="40">40</strong><em>%</em>
+              <div class="bar"><i style="--value:40%"></i></div>
+            </article>
+            <article class="dash-card">
+              <span class="dash-label">דירות חדשות בממוצע לשנה</span>
+              <strong data-count="95">95</strong>
+              <small>בקירוב</small>
+            </article>
+          </div>
+          <p class="source-note">מקור: <a href="#source-planning">תוכנית מתאר כוללנית 252-0411306 ומפקד האוכלוסין 2008</a>, כפי שנותחו בעמודים 38–48 במצגת. האתר אינו מוסיף חישובים סטטוטוריים חדשים.</p>
+        </div>
+
+        <div class="interviews reveal" aria-labelledby="interviewsTitle">
+          <div class="interview-nav">
+            <p class="kicker">קולות מהשטח</p>
+            <h3 id="interviewsTitle">ראיונות וזיכרון מקומי</h3>
+            <div class="interview-tabs" role="tablist" aria-label="בחירת ראיון">
+              <button class="interview-btn active" id="interviewTabPlanner" data-interview="planner" role="tab" aria-selected="true" aria-controls="interviewPanelPlanner">אדר׳ רנין עודה</button>
+              <button class="interview-btn" id="interviewTabCulture" data-interview="culture" role="tab" aria-selected="false" aria-controls="interviewPanelCulture">עמותת אבדאע</button>
+              <button class="interview-btn" id="interviewTabBusiness" data-interview="business" role="tab" aria-selected="false" aria-controls="interviewPanelBusiness">בעל עסק מקומי</button>
+              <button class="interview-btn" id="interviewTabResidents" data-interview="residents" role="tab" aria-selected="false" aria-controls="interviewPanelResidents">תושבים</button>
+            </div>
+          </div>
+          <div class="interview-stage panel">
+            <article class="interview-panel active" id="interviewPanelPlanner" data-interview-panel="planner" role="tabpanel" aria-labelledby="interviewTabPlanner">
+              <span class="quote-mark">״</span>
+              <h4>להחזיר טבע גם כשהאדמה נעלמת</h4>
+              <p>סיפור משפחתי שהובא בראיון מתאר כיצד המרפסת המרוצפת הפכה שוב למרחב ירוק באמצעות צמחים ואלתור — דימוי קטן שמזקק את השאלה הרחבה של טבע בתוך מרקם בנוי וצפוף.</p>
+            </article>
+            <article class="interview-panel" id="interviewPanelCulture" data-interview-panel="culture" role="tabpanel" aria-labelledby="interviewTabCulture">
+              <span class="quote-mark">״</span>
+              <h4>אמנות כחלק מזהות המרחב</h4>
+              <p>הראיון מתאר כיצד ציורי קיר, עיטורים ופסלים שולבו במרחבים שונים בכפר ומחזקים את הקשר בין תרבות מקומית לסביבה היומיומית.</p>
+            </article>
+            <article class="interview-panel" id="interviewPanelBusiness" data-interview-panel="business" role="tabpanel" aria-labelledby="interviewTabBusiness">
+              <span class="quote-mark">״</span>
+              <h4>מהשוק — לחניה</h4>
+              <p>בעל עסק מקומי מתאר שוק היסטורי שחולק למסחר בבעלי חיים ולתוצרת חקלאית; כיום, לאחר סלילת הרחבה באספלט, היא משמשת בעיקר לחניית רכבים.</p>
+            </article>
+            <article class="interview-panel" id="interviewPanelResidents" data-interview-panel="residents" role="tabpanel" aria-labelledby="interviewTabResidents">
+              <span class="quote-mark">״</span>
+              <h4>בעלות, שכנות וזיכרון</h4>
+              <p>בראיונות חצי־מובנים עולה התנגדות לוויתור על קרקע פרטית גם מול פיצוי, לצד זיכרון של מנגנוני שכנות וגמישות מרחבית שהתקיימו בעבר בצפיפות גבוהה.</p>
+            </article>
+          </div>
+          <p class="source-note interview-source">מקור: סיכומי הראיונות ב<a href="#source-research">מצגת הצעת המחקר</a>, עמודים 50–53. הטקסט באתר הוא תקציר ואינו ציטוט מילולי.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section-pad section-rule" id="gallery" aria-labelledby="galleryTitle">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">05 · ארכיון חזותי</p>
+          <h2 id="galleryTitle">תמונות מתוך הצעת המחקר</h2>
+          <p>תיעוד הרחובות, שכבות היסטוריות, זיכרון מקומי, ראיונות, מקרי בוחן ואבות־טיפוס — כולם נלקחו ישירות מה־PDF של המחקר.</p>
+        </div>
+        <p class="source-note reveal">ייחוס התמונות והמפות: <a href="#source-visual">Google Maps, GovMap, ארכיון כרים עבוד ומג׳יד שחאדה</a>; מקורות מקרי הבוחן מפורטים ב<a href="#source-cases">רשימת המקורות</a>.</p>
+
+        <div class="gallery-toolbar reveal" aria-label="סינון גלריית המחקר">
+          <button class="gallery-filter active" data-gallery-filter="all" aria-pressed="true">הכול</button>
+          <button class="gallery-filter" data-gallery-filter="streets" aria-pressed="false">רחובות</button>
+          <button class="gallery-filter" data-gallery-filter="history" aria-pressed="false">היסטוריה</button>
+          <button class="gallery-filter" data-gallery-filter="community" aria-pressed="false">קהילה</button>
+          <button class="gallery-filter" data-gallery-filter="cases" aria-pressed="false">מקרי בוחן</button>
+          <button class="gallery-filter" data-gallery-filter="interface" aria-pressed="false">ממשק</button>
+        </div>
+
+        <div class="research-gallery" id="researchGallery">
+          <figure class="gallery-card reveal" data-gallery-category="streets">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/street-103.webp" data-lightbox-caption="רחוב 103 — ניתוח מרחבי מתוך עמוד 21 במצגת.">
+              <img src="assets/pdf/street-103.webp" alt="ניתוח חזותי של רחוב 103 בכפר יאסיף" loading="lazy" />
+            </button>
+            <figcaption><b>רחוב 103</b><span>ניתוח מרחבי · עמוד 21</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="streets">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/street-110.webp" data-lightbox-caption="רחוב 110 — תיעוד וניתוח מרחבי מתוך עמוד 23 במצגת.">
+              <img src="assets/pdf/street-110.webp" alt="ניתוח חזותי של רחוב 110 בכפר יאסיף" loading="lazy" />
+            </button>
+            <figcaption><b>רחוב 110</b><span>ניתוח מרחבי · עמוד 23</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="streets">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/street-7003.webp" data-lightbox-caption="רחוב 7003 — תיעוד וניתוח מרחבי מתוך עמוד 24 במצגת.">
+              <img src="assets/pdf/street-7003.webp" alt="ניתוח חזותי של רחוב 7003 בכפר יאסיף" loading="lazy" />
+            </button>
+            <figcaption><b>רחוב 7003</b><span>ניתוח מרחבי · עמוד 24</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card gallery-card-wide reveal" data-gallery-category="history">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/aerial-1949.webp" data-lightbox-caption="תצלום אוויר היסטורי — שכבת ההשוואה הקרטוגרפית בעמוד 26.">
+              <img src="assets/pdf/aerial-1949.webp" alt="תצלום אוויר היסטורי של כפר יאסיף" loading="lazy" />
+            </button>
+            <figcaption><b>הכפר ההיסטורי</b><span>תצ״א 1949 · עמוד 26</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card gallery-card-wide reveal" data-gallery-category="history">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/aerial-2025.webp" data-lightbox-caption="תצלום אוויר עכשווי — שכבת ההשוואה הקרטוגרפית בעמוד 26.">
+              <img src="assets/pdf/aerial-2025.webp" alt="תצלום אוויר עכשווי של כפר יאסיף" loading="lazy" />
+            </button>
+            <figcaption><b>הכפר העכשווי</b><span>תצ״א 2025 · עמוד 26</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="history">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/archive-market-1.webp" data-lightbox-caption="תיעוד ארכיוני של רחבת השוק מתוך עמוד 36.">
+              <img src="assets/pdf/archive-market-1.webp" alt="צילום ארכיוני של רחבת השוק בכפר יאסיף" loading="lazy" />
+            </button>
+            <figcaption><b>רחבת השוק</b><span>תיעוד ארכיוני · עמוד 36</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="history">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/archive-market-2.webp" data-lightbox-caption="תיעוד ארכיוני של השוק והקשתות מתוך עמוד 36.">
+              <img src="assets/pdf/archive-market-2.webp" alt="תיעוד ארכיוני של מבנה השוק והקשתות בכפר יאסיף" loading="lazy" />
+            </button>
+            <figcaption><b>השוק הישן</b><span>זיכרון מרחבי · עמוד 36</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="history">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/archive-market-3.webp" data-lightbox-caption="תיעוד של פעילות קהילתית ברחבת השוק מתוך עמוד 36.">
+              <img src="assets/pdf/archive-market-3.webp" alt="צילום היסטורי של פעילות קהילתית ברחבת השוק" loading="lazy" />
+            </button>
+            <figcaption><b>חיי קהילה</b><span>תיעוד היסטורי · עמוד 36</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="history">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/protest.webp" data-lightbox-caption="תיעוד מחאה היסטורי המופיע בעמוד 35 במצגת.">
+              <img src="assets/pdf/protest.webp" alt="תיעוד מחאה היסטורי בכפר יאסיף" loading="lazy" />
+            </button>
+            <figcaption><b>מחאה וזיכרון</b><span>תיעוד היסטורי · עמוד 35</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card gallery-card-wide reveal" data-gallery-category="history">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/current-market.webp" data-lightbox-caption="רחבת השוק במצבה העכשווי — מבט אווירי מתוך עמוד 37.">
+              <img src="assets/pdf/current-market.webp" alt="מבט אווירי עכשווי על רחבת השוק בכפר יאסיף" loading="lazy" />
+            </button>
+            <figcaption><b>השוק היום</b><span>מרחב מוטה רכב · עמוד 37</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="community">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/interview-street.webp" data-lightbox-caption="צילום מתוך הראיון עם אדר׳ רנין עודה — עמוד 50.">
+              <img src="assets/pdf/interview-street.webp" alt="רחוב ומבנה ותיק בכפר יאסיף מתוך הראיון עם האדריכלית רנין עודה" loading="lazy" />
+            </button>
+            <figcaption><b>המרכז הוותיק</b><span>ראיון עם אדר׳ רנין עודה · עמוד 50</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="community">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/interview-garden.webp" data-lightbox-caption="איור סיפור הסבתא של רנין — החזרת הירוק למרפסת, עמוד 51.">
+              <img src="assets/pdf/interview-garden.webp" alt="איור של החזרת צמחייה למרפסת מתוך סיפור הסבתא של רנין" loading="lazy" />
+            </button>
+            <figcaption><b>להחזיר את הירוק</b><span>סיפור מקומי · עמוד 51</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="community">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/art-mural.webp" data-lightbox-caption="אמנות במרחב הציבורי בתיעוד הראיון עם עמותת אבדאע — עמוד 52.">
+              <img src="assets/pdf/art-mural.webp" alt="ציור קיר במרחב הציבורי בכפר יאסיף" loading="lazy" />
+            </button>
+            <figcaption><b>אמנות במרחב</b><span>עמותת אבדאע · עמוד 52</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="community">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/restaurant.webp" data-lightbox-caption="חלל מסעדת אל ראן מתוך הראיון עם בעל העסק — עמוד 53.">
+              <img src="assets/pdf/restaurant.webp" alt="חלל מסעדת אל ראן בכפר יאסיף" loading="lazy" />
+            </button>
+            <figcaption><b>מסחר מקומי</b><span>ראיון עם בעל עסק · עמוד 53</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="cases">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/milan-before.webp" data-lightbox-caption="Piazze Aperte במילאנו — מצב רחוב לפני התערבות, מתוך עמוד 55.">
+              <img src="assets/pdf/milan-before.webp" alt="רחוב במילאנו לפני התערבות טקטית" loading="lazy" />
+            </button>
+            <figcaption><b>מילאנו — לפני</b><span>Piazze Aperte · עמוד 55</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="cases">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/milan-after.webp" data-lightbox-caption="Piazze Aperte במילאנו — מרחב ציבורי פעיל לאחר התערבות, מתוך עמוד 55.">
+              <img src="assets/pdf/milan-after.webp" alt="מרחב ציבורי במילאנו לאחר התערבות טקטית" loading="lazy" />
+            </button>
+            <figcaption><b>מילאנו — אחרי</b><span>Piazze Aperte · עמוד 55</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card gallery-card-wide reveal" data-gallery-category="cases">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/milan-intervention.webp" data-lightbox-caption="התערבות טקטית צבעונית במילאנו מתוך עמוד 55.">
+              <img src="assets/pdf/milan-intervention.webp" alt="התערבות עירונית טקטית צבעונית במילאנו" loading="lazy" />
+            </button>
+            <figcaption><b>עירוניות טקטית</b><span>מילאנו · עמוד 55</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="cases">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/sf-parklet.webp" data-lightbox-caption="דוגמה ל־Parklet בסן פרנסיסקו מתוך עמוד 56.">
+              <img src="assets/pdf/sf-parklet.webp" alt="Parklet בסן פרנסיסקו" loading="lazy" />
+            </button>
+            <figcaption><b>Parklet</b><span>סן פרנסיסקו · עמוד 56</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="streets">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/local-street-1.webp" data-lightbox-caption="רחוב מקומי בכפר יאסיף מתוך עמוד 57 — בסיס לפיתוח ערכת הכלים המקומית.">
+              <img src="assets/pdf/local-street-1.webp" alt="רחוב מקומי בכפר יאסיף מתוך פרק היישום" loading="lazy" />
+            </button>
+            <figcaption><b>רחוב מקומי</b><span>חיבור למקרה הבוחן · עמוד 57</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card reveal" data-gallery-category="streets">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/local-street-2.webp" data-lightbox-caption="רחוב צר במרקם ההיסטורי של כפר יאסיף מתוך עמוד 57.">
+              <img src="assets/pdf/local-street-2.webp" alt="רחוב צר במרכז ההיסטורי של כפר יאסיף" loading="lazy" />
+            </button>
+            <figcaption><b>המרקם הצר</b><span>בסיס ל־Open Source Urbanism · עמוד 57</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card gallery-card-wide reveal" data-gallery-category="interface">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/prototype-dark.webp" data-lightbox-caption="אב־טיפוס כהה למערכת ההשתתפות הדיגיטלית מתוך עמוד 59.">
+              <img src="assets/pdf/prototype-dark.webp" alt="אב טיפוס כהה למערכת השתתפות דיגיטלית" loading="lazy" />
+            </button>
+            <figcaption><b>אב־טיפוס — כהה</b><span>ממשק דיגיטלי · עמוד 59</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card gallery-card-wide reveal" data-gallery-category="interface">
+            <button class="gallery-open" type="button" data-lightbox-src="assets/pdf/prototype-light.webp" data-lightbox-caption="אב־טיפוס בהיר למערכת ההשתתפות הדיגיטלית מתוך עמוד 59.">
+              <img src="assets/pdf/prototype-light.webp" alt="אב טיפוס בהיר למערכת השתתפות דיגיטלית" loading="lazy" />
+            </button>
+            <figcaption><b>אב־טיפוס — בהיר</b><span>ממשק דיגיטלי · עמוד 59</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad section-rule" id="application" aria-labelledby="applicationTitle">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">06 · יישום</p>
+          <h2 id="applicationTitle">מערכת השתתפות דיגיטלית — בארבע שכבות</h2>
+          <p>היישום המוצע מתרגם את העקרונות התיאורטיים למערכת מקומית: בניית חתך רחוב, ספריית אלמנטים פתוחה, מפת ידע מקומי והדמיות בזמן אמת.</p>
+        </div>
+
+        <div class="layer-strip reveal" aria-label="ארבע שכבות המערכת">
+          <div><b>1</b><span>Streetmix מקומי</span></div>
+          <div><b>2</b><span>ספריית אלמנטים</span></div>
+          <div><b>3</b><span>מפת השתתפות</span></div>
+          <div><b>4</b><span>הדמיה בזמן אמת</span></div>
+        </div>
+
+        <section class="prototype panel reveal" aria-labelledby="builderTitle">
+          <div class="prototype-head">
+            <div>
+              <p class="kicker">שכבה 1 + 2</p>
+              <h3 id="builderTitle">בנה חתך לרחוב 112</h3>
+              <p>בחר אלמנטים והמערכת תעדכן חתך סכמטי ומדדי המחשה. המדדים כאן הם דמו אינטראקטיבי בלבד — לא חישוב הנדסי.</p>
+            </div>
+            <label class="width-control" for="streetWidth">
+              <span>רוחב רחוב</span>
+              <output id="streetWidthOutput">10 מ׳</output>
+              <input id="streetWidth" type="range" min="6" max="14" step="0.5" value="10" />
+            </label>
+          </div>
+
+          <div class="builder-layout">
+            <div class="builder-controls" id="builderControls">
+              <button class="element-toggle active" data-element="sidewalk" aria-pressed="true"><span>מדרכה</span><small>1.5 מ׳</small></button>
+              <button class="element-toggle active" data-element="trees" aria-pressed="true"><span>עצים</span><small>הצללה</small></button>
+              <button class="element-toggle active" data-element="benches" aria-pressed="true"><span>ספסלים</span><small>שהייה</small></button>
+              <button class="element-toggle" data-element="water" aria-pressed="false"><span>תעלת מים</span><small>ניקוז</small></button>
+              <button class="element-toggle" data-element="permeable" aria-pressed="false"><span>ריצוף חדיר</span><small>חלחול</small></button>
+              <button class="element-toggle" data-element="market" aria-pressed="false"><span>דוכן שוק</span><small>מסחר</small></button>
+              <button class="element-toggle" data-element="shade" aria-pressed="false"><span>פרגולה</span><small>צל</small></button>
+              <button class="element-toggle" data-element="heritage" aria-pressed="false"><span>אבן מקומית</span><small>מורשת</small></button>
+            </div>
+
+            <div class="street-canvas-wrap">
+              <svg id="streetSvg" class="street-svg" viewBox="0 0 1000 360" role="img" aria-label="חתך רחוב אינטראקטיבי">
+                <rect width="1000" height="360" fill="#0b1016"></rect>
+                <text x="500" y="180" text-anchor="middle" fill="#a6adb8" font-size="22">החתך האינטראקטיבי זמין כאשר JavaScript פעיל</text>
+              </svg>
+              <div class="prototype-metrics" aria-live="polite">
+                <div><span>הצללה</span><strong id="shadeMetric">בינונית</strong></div>
+                <div><span>חלחול</span><strong id="drainMetric">נמוך</strong></div>
+                <div><span>פעילות רחוב</span><strong id="activityMetric">בינונית</strong></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="library-section reveal" aria-labelledby="libraryTitle">
+          <div class="block-head">
+            <div>
+              <p class="kicker">שכבה 2</p>
+              <h3 id="libraryTitle">ספריית אלמנטים פתוחה</h3>
+            </div>
+            <div class="filter-group" aria-label="סינון ספריית אלמנטים">
+              <button class="library-filter active" data-library-filter="all" aria-pressed="true">הכול</button>
+              <button class="library-filter" data-library-filter="shade" aria-pressed="false">הצללה</button>
+              <button class="library-filter" data-library-filter="water" aria-pressed="false">מים</button>
+              <button class="library-filter" data-library-filter="commerce" aria-pressed="false">מסחר</button>
+              <button class="library-filter" data-library-filter="heritage" aria-pressed="false">מורשת</button>
+            </div>
+          </div>
+
+          <div class="library-grid" id="libraryGrid">
+            <article data-library="shade"><b>פרגולת עץ</b><span>הצללה מודולרית</span></article>
+            <article data-library="shade"><b>גפן מטפסת</b><span>צל + צמחייה</span></article>
+            <article data-library="water"><b>תעלת מים פתוחה</b><span>ניקוז גלוי</span></article>
+            <article data-library="water"><b>אגן חלחול</b><span>השהיית נגר</span></article>
+            <article data-library="water"><b>ריצוף חדיר</b><span>חלחול מקומי</span></article>
+            <article data-library="commerce"><b>דוכן שוק</b><span>מסחר זמני</span></article>
+            <article data-library="commerce"><b>בית קפה</b><span>ישיבה ברחוב</span></article>
+            <article data-library="heritage"><b>אבן מקומית</b><span>שפה חומרית</span></article>
+            <article data-library="heritage"><b>קשת</b><span>אלמנט היסטורי</span></article>
+          </div>
+        </section>
+
+        <section class="participation reveal" aria-labelledby="mapTitle">
+          <div class="participation-copy">
+            <p class="kicker">שכבה 3</p>
+            <h3 id="mapTitle">מפת ידע מקומי</h3>
+            <p>בחר סוג סימון ולחץ על המפה. כך ניתן להמחיש איך מאות נקודות של תושבים עשויות להצטבר לשכבת ידע מקומית.</p>
+
+            <div class="marker-tools" role="radiogroup" aria-label="סוג סימון">
+              <button class="marker-type active" data-marker="good" style="--marker:#57d887" role="radio" aria-checked="true">מקום מוצלח</button>
+              <button class="marker-type" data-marker="problem" style="--marker:#ff5d6c" role="radio" aria-checked="false">מקום בעייתי</button>
+              <button class="marker-type" data-marker="shade" style="--marker:#b6e45d" role="radio" aria-checked="false">צריך הצללה</button>
+              <button class="marker-type" data-marker="flood" style="--marker:#45b9ff" role="radio" aria-checked="false">מוצף בחורף</button>
+              <button class="marker-type" data-marker="sit" style="--marker:#ffb45c" role="radio" aria-checked="false">מתאים לישיבה</button>
+            </div>
+            <button class="btn btn-ghost small" id="clearMarkers">נקה סימונים</button>
+            <p class="sr-only" id="mapStatus" aria-live="polite"></p>
+          </div>
+
+          <div class="map-demo" id="participationMap" role="group" tabindex="0" aria-label="מפת השתתפות סכמטית" aria-describedby="mapInstructions">
+            <img src="assets/market-now.webp" alt="מבט אווירי על אזור מרכז כפר יאסיף" loading="lazy" />
+            <div class="map-overlay" id="mapOverlay"></div>
+            <span class="map-keyboard-cursor" id="mapKeyboardCursor" aria-hidden="true"></span>
+            <div class="map-hint" id="mapInstructions">לחץ/י כדי לסמן; במקלדת הזז/י עם החצים ואשר/י ב־Enter</div>
+          </div>
+        </section>
+
+        <section class="realtime panel reveal" aria-labelledby="realtimeTitle">
+          <div class="realtime-copy">
+            <p class="kicker">שכבה 4</p>
+            <h3 id="realtimeTitle">הדמיה בזמן אמת</h3>
+            <p>במקום להציג רק תכנית מקצועית מורכבת, תושב יוכל לצלם רחוב ולהבין באופן חזותי כיצד עצים, הצללה, ניקוז, שוק זמני וספסלים עשויים לשנות אותו — באמצעות AR או AI.</p>
+            <ul class="clean-list">
+              <li>לראות לפני שמחליטים</li>
+              <li>להשוות חלופות</li>
+              <li>לתרגם ידע מקצועי לשפה חזותית</li>
+            </ul>
+          </div>
+          <figure>
+            <img src="assets/concept-mockup.webp" alt="אב טיפוס חזותי למערכת הדיגיטלית מתוך הצעת המחקר" loading="lazy" />
+            <figcaption>כיוון ממשקי שהוצג במצגת המחקר.</figcaption>
+          </figure>
+        </section>
+      </div>
+    </section>
+
+    <section class="section-pad soft-bg" id="contribution" aria-labelledby="contributionTitle">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">07 · תרומת המחקר</p>
+          <h2 id="contributionTitle">לא רק פלטפורמה — מודל לתהליך משותף</h2>
+        </div>
+
+        <div class="contribution-grid">
+          <article class="contribution-card reveal">
+            <span>אקדמית</span>
+            <h3>חיבור בין תחומים</h3>
+            <p>תכנון משתף, בעלות על קרקע, אדריכלות בקוד פתוח וכלים דיגיטליים — במסגרת מקרה בוחן של יישוב ערבי בישראל.</p>
+          </article>
+          <article class="contribution-card reveal">
+            <span>תיאורטית</span>
+            <h3>תיווך בין זכויות לאינטרסים</h3>
+            <p>פיתוח הבנה של האופן שבו טכנולוגיות דיגיטליות עשויות לתווך בין זכויות פרטיות על קרקע לבין אינטרסים ציבוריים.</p>
+          </article>
+          <article class="contribution-card reveal">
+            <span>תכנונית</span>
+            <h3>עקרונות למערכת</h3>
+            <p>מערכת שמאפשרת לתושבים להשתתף בעיצוב הרחובות והמרחב הציבורי באמצעות כלים מובנים וברורים.</p>
+          </article>
+          <article class="contribution-card reveal">
+            <span>מעשית / חברתית</span>
+            <h3>מודל שניתן להתאים</h3>
+            <p>כיוון שניתן לבחון גם ביישובים נוספים שמתמודדים עם מחסור בקרקע, בעלות פרטית מפוצלת ומחסור בשטחים ציבוריים.</p>
+          </article>
+        </div>
+
+        <div class="closing reveal">
+          <p>היעד הוא להעביר את הדיון מ־<strong>״מה מתכננים עבורנו?״</strong> אל <strong>״איך אנחנו מתכננים יחד?״</strong></p>
+          <a class="btn btn-primary" href="#top">חזרה להתחלה</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad section-rule" id="sources" aria-labelledby="sourcesTitle">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">08 · מקורות וייחוס</p>
+          <h2 id="sourcesTitle">מאין מגיע החומר</h2>
+          <p>ההפניות מפרידות בין חומר המחקר המקומי, ספרות יסוד, פלטפורמות שנבחנו ומקרי הבוחן. קישורים חיצוניים מובילים למקור הרשמי כאשר הוא זמין.</p>
+        </div>
+
+        <ol class="sources-list reveal">
+          <li id="source-research">
+            <span>מקור המחקר הראשי</span>
+            <p>גבריאל עבוד, <cite>בין קו המגרש לרחוב: שיתוף ציבור דיגיטלי ואדריכלות בקוד פתוח בתכנון המרחב</cite>, הצעת מחקר, בית ספר לאדריכלות, קורס 0881605001 — קולוקוויום ב׳; מרצה: ד״ר גל רינגל. הסיכומים, הנתונים המקומיים, המפות, הראיונות והדימויים באתר עובדו ממצגת בת 60 עמודים זו. שנת ההגשה אינה מצוינת במסמך.</p>
+          </li>
+
+          <li id="source-local">
+            <span>סביבה, אקלים וקרקע בכפר יאסיף</span>
+            <ul class="source-items">
+              <li><cite>תוכנית פעולה להיערכות לשינויי האקלים 2030 — כפר יאסיף</cite>, הרשות המקומית ומשרד הפנים; מקור לנתוני חופות העצים, השטחים הציבוריים והשטחים הירוקים בעמודים 3–4. <a href="https://www.gov.il/files/Sviva/authorities/kafr_yasif.pdf" rel="external">מסמך התוכנית</a> · <a href="https://aclima.org.il/kfaryasif/" rel="external">עמוד היישוב ב־Aclima</a>.</li>
+              <li>ראסם ח׳מאיסי, <cite>תכנון ופיתוח היישובים הערביים: תפיסה חדשה להיערכות הרשויות המקומיות והמדינה</cite>, 2019; מצוטט בעמוד 7.</li>
+              <li>אורי אטינגר ונגה שני, <cite>מחקר התחדשות עירונית ביישובים הערביים בישראל</cite>, ינואר 2021; צוות המחקר: מורן אביב, נדב דגן, ד״ר ענאיה בנא, סבסטיאן ולרשטיין, רגד ג׳ראיסי ורנין עודה. <a href="https://www.ac-ap.org/he/" rel="external">המרכז הערבי לתכנון אלטרנטיבי</a>; עמוד 12.</li>
+            </ul>
+          </li>
+
+          <li id="source-planning">
+            <span>מסמכי תכנון ונתוני בינוי</span>
+            <ul class="source-items">
+              <li><cite>כפר יאסיף — תוכנית מתאר כוללנית 252-0411306</cite>, אושרה למתן תוקף ב־20 בפברואר 2022; הוראות התוכנית, פרוגרמת שטחי הציבור, שיתוף הציבור, מתחמי השימור וזכויות הבנייה נותחו בעמודים 38–48.</li>
+              <li>מפקד האוכלוסין 2008, כפי שהוא מוצג לצד נתוני הבינוי בתוכנית המתאר בעמוד 40. נתוני האתר לשנים 2005–2014 הם תעתיק של הניתוח במצגת ולא חישוב עצמאי.</li>
+            </ul>
+          </li>
+
+          <li id="source-arnstein">
+            <span>שיתוף ציבור וסולם ההשתתפות</span>
+            <ul class="source-items" dir="ltr">
+              <li>Sherry R. Arnstein, “A Ladder of Citizen Participation,” <cite>Journal of the American Institute of Planners</cite> 35(4), 1969, pp. 216–224. <a href="https://doi.org/10.1080/01944366908977225" rel="external">DOI</a>.</li>
+              <li>Larissa Romariz Peixoto, Laura Rectem, and Jean-Alexandre Pouleur, “Citizen Participation in Architecture and Urban Planning Confronted with Arnstein’s Ladder: Four Experiments into Popular Neighbourhoods of Hainaut Demonstrate Another Hierarchy,” <cite>Architecture</cite> 2(1), 2022. <a href="https://www.mdpi.com/2673-8945/2/1/7" rel="external">Publisher page</a>.</li>
+              <li>Deborah F. Shmueli and Pnina O. Plaut, “Translating Public Participation into Planning Policy — The Israeli Experience,” in <cite>International Public Policy and Management</cite>, 2004, pp. 395–422; used on page 9.</li>
+            </ul>
+          </li>
+
+          <li id="source-digital">
+            <span>PPGIS, שיתוף דיגיטלי ו־Co-Creation</span>
+            <ul class="source-items" dir="ltr">
+              <li>E. Bąkowska-Waldmann and T. Kaczmarek, “The Use of PPGIS: Towards Reaching a Meaningful Public Participation in Spatial Planning,” <cite>ISPRS International Journal of Geo-Information</cite> 10(9), 581, 2021. <a href="https://doi.org/10.3390/ijgi10090581" rel="external">DOI</a>.</li>
+              <li>J. Åström, “Participatory Urban Planning: What Would Make Planners Trust the Citizens?,” <cite>Urban Planning</cite> 5(2), 84–93, 2020. <a href="https://doi.org/10.17645/up.v5i2.3021" rel="external">DOI</a>.</li>
+              <li>A. Mansourian, M. Taleai, and A. Fasihi, “A Web-Based Spatial Decision Support System to Enhance Public Participation in Urban Planning Processes,” <cite>Journal of Spatial Science</cite> 56(2), 269–282, 2011. <a href="https://doi.org/10.1080/14498596.2011.623347" rel="external">DOI</a>.</li>
+              <li>M. Kahila-Tani, M. Kyttä, and S. Geertman, “Does Mapping Improve Public Participation? Exploring the Pros and Cons of Using Public Participation GIS in Urban Planning Practices,” <cite>Landscape and Urban Planning</cite> 186, 45–55, 2019. <a href="https://doi.org/10.1016/j.landurbplan.2019.02.019" rel="external">DOI</a>.</li>
+              <li>I. Babelon, J. Pánek, E. Falco, R. Kleinhans, and J. Charlton, “Between Consultation and Collaboration: Self-Reported Objectives for 25 Web-Based Geoparticipation Projects in Urban Planning,” <cite>ISPRS International Journal of Geo-Information</cite> 10(11), 783, 2021. <a href="https://doi.org/10.3390/ijgi10110783" rel="external">DOI</a>.</li>
+              <li>S. Marshall, D. Farndon, A. Hudson-Smith, A. Kourniotis, and N. Karadimitriou, “Urban Design and Planning Participation in the Digital Age: Lessons from an Experimental Online Platform,” <cite>Smart Cities</cite> 7(1), 615–632, 2024. <a href="https://doi.org/10.3390/smartcities7010025" rel="external">DOI</a>.</li>
+              <li>M. Hofmann, S. Münster, and J. R. Noennig, “A Theoretical Framework for the Evaluation of Massive Digital Participation Systems in Urban Planning,” <cite>Journal of Geovisualization and Spatial Analysis</cite> 4, 3, 2020. <a href="https://doi.org/10.1007/s41651-019-0040-3" rel="external">DOI</a>.</li>
+              <li>M. Kluge, J. Kachel, and M. Knodt, “Digital Co-Creation in Urban Mobility Planning: What Motivates People to Participate?,” <cite>Local Government Studies</cite> 51(1), 24–49, 2025. <a href="https://doi.org/10.1080/03003930.2024.2310213" rel="external">DOI</a>.</li>
+              <li><a href="https://participatorymapping.org/project/softgis-ppgis-development/" rel="external">SoftGIS/PPGIS Development</a>, Participatory Mapping; cited on page 10.</li>
+            </ul>
+          </li>
+
+          <li id="source-open">
+            <span>קוד פתוח ונחלת הכלל הדיגיטלית</span>
+            <p>עמודים 13–15 משתמשים ב־<a href="https://www.wikipedia.org/" rel="external">Wikipedia</a>, <a href="https://github.com/" rel="external">GitHub</a>, <a href="https://www.gnu.org/" rel="external">GNU</a>, Linux ו־<a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="external">GNU General Public License</a> כדוגמאות מושגיות לקוד פתוח, copyleft, ניהול גרסאות וידע משותף.</p>
+          </li>
+
+          <li id="source-platforms">
+            <span>פלטפורמות השתתפות</span>
+            <p><a href="https://streetmix.net/" rel="external">Streetmix</a>, עמוד 16 · <a href="https://decidim.org/" rel="external">Decidim</a> ו<a href="https://github.com/decidim/decidim" rel="external">קוד המקור</a>, עמוד 17 · <a href="https://consuldemocracy.org/features/" rel="external">CONSUL DEMOCRACY</a>, עמוד 18 · <a href="https://www.maptionnaire.com/" rel="external">Maptionnaire</a>, עמוד 19. התיאורים באתר הם תקצירים של מטרות ויכולות הפלטפורמות, לא המלצה מסחרית.</p>
+          </li>
+
+          <li id="source-visual">
+            <span>מפות, תצלומים וארכיונים</span>
+            <ul class="source-items">
+              <li><a href="https://www.google.com/maps" rel="external">Google Maps</a>: תיעוד הרחובות 103, 110, 7003 ו־112 בעמודים 21–25 ו־57.</li>
+              <li><a href="https://www.govmap.gov.il/" rel="external">GovMap</a>: שכבות בעלות קרקע ותצלומי אוויר עכשוויים בעמודים 4, 26–28 ו־41.</li>
+              <li>תצלום אוויר היסטורי 005_4291 משנת 1949, עמודים 26–27. מאגר המקור אינו מצוין במצגת ולכן אין לייחס לו מוסד שלא תועד.</li>
+              <li>ארכיון כרים עבוד: תצלומי רחבת השוק, מבנה הקשתות ופעילות השוק בעמוד 36.</li>
+              <li>Magid Shihade, “Not Just a Picnic: Settler Colonialism, Mobility, and Identity among Palestinians in Israel,” <cite>Biography</cite> 37(2), 451–473, 2014; מקור לתצלומים ההיסטוריים בעמודים 34–35. <a href="https://doi.org/10.1353/bio.2014.0016" rel="external">DOI</a>.</li>
+            </ul>
+          </li>
+
+          <li id="source-cases">
+            <span>מקרי בוחן</span>
+            <ul class="source-items">
+              <li>J. P. Caicedo, “Moving the Elephant: City Action and Strategy to Transform Avenida Séptima into Bogotá’s First Green Corridor,” <cite>Proceedings of the Paris Institute for Advanced Study</cite>, vol. 21, 2023; מצוטט לצד Streetmix בעמוד 16. <a href="https://doi.org/10.5281/zenodo.13588602" rel="external">DOI</a>.</li>
+              <li><a href="https://www.comune.milano.it/en/aree-tematiche/quartieri/piano-quartieri/piazze-aperte" rel="external">Piazze Aperte — עיריית מילאנו</a>; מפת ההתערבויות מיוחסת ל־AMAT בעמוד 55.</li>
+              <li><a href="https://groundplaysf.org/wp-content/uploads/San-Francisco-Parklet-Manual.pdf" rel="external">San Francisco Parklet Manual</a>, המקור המצוין במצגת בעמוד 56 · <a href="https://www.sf.gov/file/shared-spaces-manual" rel="external">Shared Spaces Manual העדכני של עיריית סן פרנסיסקו</a>.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div>
+        <strong>בין קו המגרש לרחוב</strong>
+        <span>אתר אינטראקטיבי המבוסס על הצעת המחקר של גבריאל עבוד</span>
+      </div>
+      <span><a href="#sources">מקורות וייחוס</a> · Vanilla HTML · CSS · JavaScript</span>
+    </div>
+  </footer>
+
+
+  <div class="lightbox" id="imageLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="תצוגת תמונה מוגדלת">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="סגירת התמונה">×</button>
+    <button class="lightbox-backdrop" id="lightboxBackdrop" type="button" tabindex="-1" aria-label="סגירת התמונה"></button>
+    <figure class="lightbox-frame">
+      <img id="lightboxImage" src="" alt="" />
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
